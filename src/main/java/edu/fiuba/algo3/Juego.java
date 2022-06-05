@@ -10,10 +10,14 @@ public class Juego {
 
     public void jugar(String nick, Vehiculo vehiculo){
         jugador = new Jugador(nick, vehiculo, ciudad.puntoPartida());
-        ciudad.colocarElementos();
     }
 
     public void moverse(Sentido sentido){
         jugador.moverse(sentido);
     }
+
+    public void agregarElemento(Elemento elemento, int fila, int columna, Sentido sentido) {
+        ciudad.agregarElemento(elemento, fila, columna, sentido);
+    }
+
 }

@@ -1,16 +1,19 @@
 package edu.fiuba.algo3;
 
+import java.util.*;
+
 import static edu.fiuba.algo3.Sentido.derecha;
 import static edu.fiuba.algo3.Sentido.izquierda;
 
 public class Cuadra {
     private PuntoEstable[] cruces;
-    private Elemento[] elementos;
+    private List<Elemento> elementos;
 
     Cuadra(PuntoEstable izquierdo, PuntoEstable derecho){
         cruces = new PuntoEstable[2];
         cruces[izquierda] = izquierdo;
         cruces[derecha] = derecho;
+        elementos = new ArrayList<Elemento>();
     }
 
     public PuntoEstable siguienteCruce(Sentido sentido, Vehiculo vehiculo) {
@@ -23,13 +26,18 @@ public class Cuadra {
         return siguientePosicion;
     }
 
-    private boolean interactuar(Vehiculo vehiculo){
+    private boolean interactuar(Vehiculo vehiculo) {
         boolean permisoParaPasar = true;
-        for(int x=0;  x < elementos.length; x++){
-            if (!vehiculo.interactuar(elementos[x])){
+
+        for (Elemento elemento : elementos) {
+            if (!vehiculo.interactuar(elemento)) {
                 permisoParaPasar = false;
+                break;
             }
         }
         return permisoParaPasar;
+    }
+    public void agregarElemento(Elemento elemento) {
+        elementos.add(elemento);
     }
 }

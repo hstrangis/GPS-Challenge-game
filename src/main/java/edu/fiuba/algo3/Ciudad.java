@@ -52,7 +52,9 @@ public class Ciudad {
     }
 
 
-    public void colocarElementos(){}
+    public void agregarElemento(Elemento elemento, int fila, int columna, Sentido sentido){
+        matrizMapa[fila][columna].agregarElemento(elemento, sentido);
+    }
 
     public Cruce puntoPartida(){
         return matrizMapa[0][0];
