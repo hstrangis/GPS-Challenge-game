@@ -9,7 +9,7 @@ public class SinSalida implements PuntoEstable{
         direccion = i;
     }
     public boolean validarSentido(Sentido sentido) {
-        return false;
+        return sentido.validar(direccion);
     }
 
     public PuntoEstable siguienteCruce(Sentido sentido, Vehiculo vehiculo) {

@@ -1,5 +1,10 @@
 package edu.fiuba.algo3;
 
+import static edu.fiuba.algo3.Este.este;
+import static edu.fiuba.algo3.Norte.norte;
+import static edu.fiuba.algo3.Oeste.oeste;
+import static edu.fiuba.algo3.Sur.sur;
+
 public class Ciudad {
     private Cruce[][] matrizMapa;
 
@@ -16,24 +21,24 @@ public class Ciudad {
                 actual = new Cruce();
                 matrizMapa[fila][columna] = actual;
                 if (columna != 0)
-                    crearCuadra(matrizMapa[fila][columna - 1], actual, 2, 0);
+                    crearCuadra(matrizMapa[fila][columna - 1], actual, este, oeste);
                 else {
                     borde = new SinSalida();
-                    crearCuadra(borde, actual, 2, 0);
+                    crearCuadra(borde, actual, este, oeste);
                 }
                 if (fila != 0)
-                    crearCuadra(matrizMapa[fila - 1][columna], actual, 3, 1);
+                    crearCuadra(matrizMapa[fila - 1][columna], actual, sur, norte);
                 else {
                     borde = new SinSalida();
-                    crearCuadra(borde, actual, 3, 1);
+                    crearCuadra(borde, actual, sur, norte);
                 }
                 if (columna == ancho-1) {
                     borde = new SinSalida();
-                    crearCuadra(borde, actual, 0, 2);
+                    crearCuadra(actual, borde, este, oeste);
                 }
                 if (fila == largo-1) {
                     borde = new SinSalida();
-                    crearCuadra(borde, actual, 1, 3);
+                    crearCuadra(actual, borde, sur, norte);
 
                 }
             }
