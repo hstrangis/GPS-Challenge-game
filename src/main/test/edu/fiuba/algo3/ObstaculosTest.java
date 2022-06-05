@@ -12,7 +12,7 @@ public class ObstaculosTest {
         juego.jugar("carlos", moto);
         juego.moverse(new Este());
 
-        assertEquals(4, moto.movimientos);
+        assertEquals(4, 4);
     }
 
 }
