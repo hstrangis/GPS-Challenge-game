@@ -1,7 +1,8 @@
+codecov:
+  token: fcdc7ad1-d1d1-4fdd-81e0-275454f4489e 
 ignore:
   - "src/main/java/edu/fiuba/algo3/controlador"
   - "src/main/java/edu/fiuba/algo3/vista"
   - "src/main/java/edu/fiuba/algo3/App.java"
   - "src/main/java/edu/fiuba/algo3/Main.java"
-  - "src/main/java/edu/fiuba/algo3/SystemInfo.java"
-  CODECOV_TOKEN=fcdc7ad1-d1d1-4fdd-81e0-275454f4489e
+  - "src/main/java/edu/fiuba/algo3/SystemInfo.java" 
