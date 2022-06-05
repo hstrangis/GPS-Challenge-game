@@ -1,9 +1,7 @@
 package edu.fiuba.algo3;
 
-import static edu.fiuba.algo3.Sentido.derecha;
-import static edu.fiuba.algo3.Sentido.izquierda;
 
-public class Norte {
+public class Norte extends Sentido {
     public static final int norte = 1;
     public int cuadra(){
         return izquierda;
@@ -14,7 +12,6 @@ public class Norte {
     public int volver(){
         return derecha;
     }
-
     public boolean validar(int direccion){
         return (direccion == norte);
     }

@@ -1,9 +1,6 @@
 package edu.fiuba.algo3;
 
-import static edu.fiuba.algo3.Sentido.derecha;
-import static edu.fiuba.algo3.Sentido.izquierda;
-
-public class Este {
+public class Este extends Sentido {
     public static final int este = 2;
     public int cuadra(){
         return derecha;
