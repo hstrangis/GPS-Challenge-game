@@ -13,6 +13,9 @@ public class CuatroxCuatro extends Vehiculo{
     }
     @Override
     protected boolean interactuar(ControlPolicial control){
+        if(control.probabilidadDetencion() < 0.3){
+            movimientos += 3;
+        }
         return true;
     }
     @Override

@@ -9,6 +9,9 @@ public class Moto extends Vehiculo{
     }
     @Override
     protected boolean interactuar(ControlPolicial control){
+        if(control.probabilidadDetencion() < 0.8){
+            movimientos += 3;
+        }
         return true;
     }
     @Override

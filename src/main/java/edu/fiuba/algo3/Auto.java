@@ -9,6 +9,10 @@ public class Auto extends Vehiculo {
     }
     @Override
     protected boolean interactuar(ControlPolicial control){
+        if(control.probabilidadDetencion() < 0.5){
+            movimientos += 3;
+        }
+
         return true;
     }
     @Override
