@@ -30,7 +30,7 @@ public class Cuadra {
         boolean permisoParaPasar = true;
 
         for (Elemento elemento : elementos) {
-            if (!vehiculo.interactuar(elemento)) {
+            if (!elemento.interactuar(vehiculo)) {
                 permisoParaPasar = false;
                 break;
             }
