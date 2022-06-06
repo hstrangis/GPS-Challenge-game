@@ -16,7 +16,7 @@ public class Cuadra {
         elementos = new ArrayList<Elemento>();
     }
 
-    public PuntoEstable siguienteCruce(Sentido sentido, Vehiculo vehiculo) {
+    public PuntoEstable siguientePunto(Sentido sentido, Vehiculo vehiculo) {
         PuntoEstable siguientePosicion;
         vehiculo.moverse();
         if (interactuar(vehiculo))

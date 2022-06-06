@@ -19,5 +19,11 @@ public class Juego {
     public void agregarElemento(Elemento elemento, int fila, int columna, Sentido sentido) {
         ciudad.agregarElemento(elemento, fila, columna, sentido);
     }
+    public Cruce puntoPartida(){
+        return ciudad.puntoPartida();
+    }
+    public PuntoEstable puntoJugador(){
+        return jugador.ubicacion();
+    }
 
 }

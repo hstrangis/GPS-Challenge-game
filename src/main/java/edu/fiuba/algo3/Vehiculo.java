@@ -11,5 +11,6 @@ public abstract class Vehiculo {
     protected abstract boolean interactuar(Pozo pozo);
     protected abstract boolean interactuar(ControlPolicial control);
     protected abstract boolean interactuar(Piquete piquete);
+    protected abstract Vehiculo crearSiguiente();
 
 }

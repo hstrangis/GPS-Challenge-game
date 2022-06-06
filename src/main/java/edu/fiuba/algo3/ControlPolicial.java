@@ -2,9 +2,9 @@ package edu.fiuba.algo3;
 import java.util.Random;
 
 public class ControlPolicial extends Obstaculo {
-    public double probabilidadDetencion() {
-        Random probabilidad = new Random();
-        return probabilidad.nextDouble();
+    public boolean probabilidadDetencion(double probabilidad) {
+        Random numeroAleatorio = new Random();
+        return (numeroAleatorio.nextDouble() < probabilidad);
     }
 
     public boolean interactuar(Vehiculo vehiculo){

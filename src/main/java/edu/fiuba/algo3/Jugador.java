@@ -13,6 +13,10 @@ public class Jugador {
 
     public void moverse(Sentido sentido){
         if (ubicacion.validarSentido(sentido))
-            ubicacion = ubicacion.siguienteCruce(sentido, vehiculo);
+            ubicacion = ubicacion.siguientePunto(sentido, vehiculo);
+    }
+
+    public PuntoEstable ubicacion(){
+        return ubicacion;
     }
 }

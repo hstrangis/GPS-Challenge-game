@@ -59,6 +59,6 @@ public class ObstaculosTest {
 
         assertEquals(1, 1);
         assertEquals(1, auto.movimientos);
-        //assertEquals(juego.ciudad.puntoPartida(), auto.posicionActual())
+        assertEquals(juego.puntoPartida(), juego.puntoJugador());
     }
 }
