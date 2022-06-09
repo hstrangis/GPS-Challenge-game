@@ -22,6 +22,11 @@ La versión más reciente de la aplicación puede encontrarse en la pestaña [re
 $ java -jar <archivo.jar>
 ```
 
+## Informe
+
+El informe actualizado se puede encontrar en el siguiente link:
+https://docs.google.com/document/d/1osnFp3QbYABOlvUi1McXMkr77hUH1IA7/edit
+
 ## Desarrollo
 
 Aquellos que deseen colaborar con el proyecto pueden consultar la [guía de desarrollo](./docs/Desarrollo.md).
