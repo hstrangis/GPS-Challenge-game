@@ -26,4 +26,6 @@ public class Juego {
         return jugador.ubicacion();
     }
 
+    public int movimientosJugador(){return jugador.movimientos();}
+
 }

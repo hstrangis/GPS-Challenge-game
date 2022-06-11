@@ -12,7 +12,7 @@ public class SinSalida implements PuntoEstable{
         return sentido.validar(direccion);
     }
 
-    public PuntoEstable siguientePunto(Sentido sentido, Vehiculo vehiculo) {
-        return cuadraSinSalida.siguientePunto(sentido, vehiculo);
+    public PuntoEstable siguientePunto(Sentido sentido, Jugador jugador) {
+        return cuadraSinSalida.siguientePunto(sentido, jugador);
     }
 }

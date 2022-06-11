@@ -9,11 +9,28 @@ public class Jugador {
         this.nick = nick;
         ubicacion = puntoPartida;
         this.vehiculo = vehiculo;
+        vehiculo.agregarConductor(this);
     }
 
-    public void moverse(Sentido sentido){
-        if (ubicacion.validarSentido(sentido))
-            ubicacion = ubicacion.siguientePunto(sentido, vehiculo);
+    public void moverse(Sentido sentido) {
+        if (ubicacion.validarSentido(sentido)) {
+            vehiculo.moverse();
+            ubicacion = ubicacion.siguientePunto(sentido, this);
+        }
+    }
+
+    public boolean interactuar(Elemento elemento){
+        return elemento.interactuar(vehiculo);
+    }
+
+    public void cambiarVehiculo(){
+        vehiculo = vehiculo.crearSiguiente();
+        vehiculo.agregarConductor(this);
+    }
+
+    //Para pruebas
+    public int movimientos(){
+        return vehiculo.movimientos;
     }
 
     public PuntoEstable ubicacion(){

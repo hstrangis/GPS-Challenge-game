@@ -16,21 +16,20 @@ public class Cuadra {
         elementos = new ArrayList<Elemento>();
     }
 
-    public PuntoEstable siguientePunto(Sentido sentido, Vehiculo vehiculo) {
+    public PuntoEstable siguientePunto(Sentido sentido, Jugador jugador) {
         PuntoEstable siguientePosicion;
-        vehiculo.moverse();
-        if (interactuar(vehiculo))
+        if (interactuar(jugador))
             siguientePosicion = cruces[sentido.cuadra()];
         else
             siguientePosicion = cruces[sentido.volver()];
         return siguientePosicion;
     }
 
-    private boolean interactuar(Vehiculo vehiculo) {
+    private boolean interactuar(Jugador jugador) {
         boolean permisoParaPasar = true;
 
         for (Elemento elemento : elementos) {
-            if (!elemento.interactuar(vehiculo)) {
+            if (!jugador.interactuar(elemento)) {
                 permisoParaPasar = false;
                 break;
             }

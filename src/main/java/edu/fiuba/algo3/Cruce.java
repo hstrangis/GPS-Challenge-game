@@ -9,9 +9,9 @@ public class Cruce implements PuntoEstable {
     public boolean validarSentido(Sentido sentido){
         return true;
     }
-    public PuntoEstable siguientePunto(Sentido sentido, Vehiculo vehiculo){
+    public PuntoEstable siguientePunto(Sentido sentido, Jugador jugador){
         Cuadra cuadra = cuadras[sentido.cruce()];
-        return cuadra.siguientePunto(sentido, vehiculo);
+        return cuadra.siguientePunto(sentido, jugador);
     }
 
     public void agregarCuadra(Cuadra cuadra, int i) {
