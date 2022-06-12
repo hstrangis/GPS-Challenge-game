@@ -4,27 +4,22 @@ import java.util.*;
 import static edu.fiuba.algo3.Sentido.Direccion;
 
 public class Cuadra {
-    private PuntoEstable[] cruces;
+    private Hashtable<Direccion, PuntoEstable> cruces;
     private List<Elemento> elementos;
 
-    Cuadra() {
-        cruces = new PuntoEstable[2];
-        elementos = new ArrayList<>();
-    }
-
     Cuadra(PuntoEstable izquierdo, PuntoEstable derecho){
-        cruces = new PuntoEstable[2];
-        cruces[Direccion.izquierda.ordinal()] = izquierdo;
-        cruces[Direccion.derecha.ordinal()] = derecho;
-        elementos = new ArrayList<Elemento>();
+        cruces = new Hashtable<>();
+        cruces.put(Direccion.izquierda, izquierdo);
+        cruces.put(Direccion.derecha, derecho);
+        elementos = new ArrayList<>();
     }
 
     public PuntoEstable siguientePunto(Sentido sentido, Jugador jugador) {
         PuntoEstable siguientePosicion;
         if (interactuar(jugador))
-            siguientePosicion = cruces[sentido.cuadra().ordinal()];
+            siguientePosicion = cruces.get(sentido.cuadra());
         else
-            siguientePosicion = cruces[sentido.volver().ordinal()];
+            siguientePosicion = cruces.get(sentido.volver());
         return siguientePosicion;
     }
 
