@@ -1,24 +1,25 @@
 package edu.fiuba.algo3;
+import java.util.Hashtable;
 
 public class Cruce implements PuntoEstable {
-    private Cuadra[] cuadras;
 
-    Cruce(){
-        cuadras = new Cuadra[4];
+    private Hashtable<String, Cuadra> cuadras;
+    Cruce() {
+        cuadras = new Hashtable<>();
     }
     public boolean validarSentido(Sentido sentido){
         return true;
     }
     public PuntoEstable siguientePunto(Sentido sentido, Jugador jugador){
-        Cuadra cuadra = cuadras[sentido.cruce()];
+        Cuadra cuadra = cuadras.get(sentido.clave());
         return cuadra.siguientePunto(sentido, jugador);
     }
 
-    public void agregarCuadra(Cuadra cuadra, int i) {
-        cuadras[i] = cuadra;
+    public void agregarCuadra(Cuadra cuadra, Sentido sentido) {
+        cuadras.put(sentido.clave(), cuadra);
     }
     public void agregarElemento(Elemento elemento, Sentido sentido) {
-        cuadras[sentido.cruce()].agregarElemento(elemento);
+        cuadras.get(sentido.clave()).agregarElemento(elemento);
     }
 }
 

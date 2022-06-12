@@ -2,16 +2,14 @@ package edu.fiuba.algo3;
 
 public class SinSalida implements PuntoEstable{
     private Cuadra cuadraSinSalida;
-    private int direccion;
-
-    public void agregarCuadra(Cuadra cuadra, int i) {
+    private Sentido sentidoIngreso;
+    public void agregarCuadra(Cuadra cuadra, Sentido sentido) {
         cuadraSinSalida = cuadra;
-        direccion = i;
+        sentidoIngreso = sentido;
     }
     public boolean validarSentido(Sentido sentido) {
-        return sentido.validar(direccion);
+        return sentido.validar(sentidoIngreso);
     }
-
     public PuntoEstable siguientePunto(Sentido sentido, Jugador jugador) {
         return cuadraSinSalida.siguientePunto(sentido, jugador);
     }

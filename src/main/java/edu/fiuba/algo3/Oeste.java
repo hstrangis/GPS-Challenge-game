@@ -1,17 +1,14 @@
 package edu.fiuba.algo3;
 
 public class Oeste extends Sentido{
-    public static final int oeste = 0;
-    public int cuadra(){
-        return izquierda;
+
+    public String clave() {
+        return "oeste";
     }
-    public int cruce(){
-        return oeste;
+    public Direccion cuadra(){
+        return Direccion.izquierda;
     }
-    public int volver(){
-        return derecha;
-    }
-    public boolean validar(int direccion){
-        return (direccion == oeste);
+    public Direccion volver(){
+        return Direccion.derecha;
     }
 }
