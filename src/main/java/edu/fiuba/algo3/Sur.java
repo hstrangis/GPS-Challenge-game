@@ -1,18 +1,13 @@
 package edu.fiuba.algo3;
 
 public class Sur extends Sentido{
-    public static final int sur = 3;
-    public int cuadra(){
-        return derecha;
+    public String clave() {
+        return "sur";
     }
-    public int cruce(){
-        return sur;
+    public Direccion cuadra(){
+        return Direccion.derecha;
     }
-    public int volver(){
-        return izquierda;
-    }
-
-    public boolean validar(int direccion){
-        return (direccion == sur);
+    public Direccion volver() {
+        return Direccion.izquierda;
     }
 }

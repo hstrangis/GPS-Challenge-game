@@ -1,17 +1,13 @@
 package edu.fiuba.algo3;
 
 public class Este extends Sentido {
-    public static final int este = 2;
-    public int cuadra(){
-        return derecha;
+    public String clave() {
+        return "este";
     }
-    public int cruce(){
-        return este;
+    public Direccion cuadra(){
+        return Direccion.derecha;
     }
-    public int volver(){
-        return izquierda;
-    }
-    public boolean validar(int direccion){
-        return (direccion == este);
+    public Direccion volver(){
+        return Direccion.izquierda;
     }
 }
