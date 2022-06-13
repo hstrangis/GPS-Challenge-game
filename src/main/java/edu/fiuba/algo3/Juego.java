@@ -25,7 +25,11 @@ public class Juego {
     public PuntoEstable puntoJugador(){
         return jugador.ubicacion();
     }
+    public double movimientosJugador(){return jugador.movimientos();}
 
-    public int movimientosJugador(){return jugador.movimientos();}
+    //Para pruebas
+    public Vehiculo obtenerVehiculo(String nickJugador) {
+        return jugador.obtenerVehiculo();
+    }
 
 }

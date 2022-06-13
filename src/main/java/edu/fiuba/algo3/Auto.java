@@ -5,7 +5,7 @@ public class Auto extends Vehiculo {
     Auto(){
         this.movimientos = 0;
     }
-    Auto(int movimientos){
+    Auto(double movimientos){
         this.movimientos = movimientos;
     }
 

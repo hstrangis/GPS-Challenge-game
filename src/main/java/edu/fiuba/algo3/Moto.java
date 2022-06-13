@@ -5,7 +5,7 @@ public class Moto extends Vehiculo{
     Moto(){
         this.movimientos = 0;
     }
-    Moto(int movimientos){
+    Moto(double movimientos){
         this.movimientos = movimientos;
     }
     @Override
