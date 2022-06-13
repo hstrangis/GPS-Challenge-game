@@ -5,8 +5,8 @@ public class Favorable extends Sorpresa{
         return vehiculo.interactuar(this);
     }
 
-    public int actuar(int movimientos) {
-        movimientos = (int) Math.round(movimientos * 0.80);
+    public double actuar(double movimientos) {
+        movimientos = movimientos * 0.80;
         return movimientos;
     }
 }

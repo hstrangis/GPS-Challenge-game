@@ -29,11 +29,13 @@ public class Jugador {
     }
 
     //Para pruebas
-    public int movimientos(){
+    public double movimientos(){
         return vehiculo.movimientos;
     }
 
     public PuntoEstable ubicacion(){
         return ubicacion;
     }
+
+    public Vehiculo obtenerVehiculo() { return vehiculo; }
 }

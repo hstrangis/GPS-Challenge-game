@@ -3,7 +3,7 @@ package edu.fiuba.algo3;
 
 
 public abstract class Vehiculo {
-    protected int movimientos;
+    protected double movimientos;
 
     protected Jugador conductor;
 

@@ -8,37 +8,34 @@ public class ObstaculosTest {
     public void testUnaMotoAtraviesaCiudadYSeEncuentraPozo() {
         //Una moto se desplaza desde el origen hacia el Este, encuentra un pozo y suma 3 movimientos
         Juego juego = new Juego(4,4);
-        Vehiculo moto = new Moto();
 
         juego.agregarElemento(new Pozo(), 0,0, new Este());
-        juego.jugar("carlos", moto);
+        juego.jugar("carlos", new Moto());
         juego.moverse(new Este());
 
-        assertEquals(4, moto.movimientos);
+        assertEquals(4, juego.movimientosJugador());
     }
     @Test
     public void testUnaAutoAtraviesaCiudadYSeEncuentraPozo() {
         //Un auto se desplaza desde el origen hacia el Este, encuentra un pozo y suma 3 movimientos
         Juego juego = new Juego(4,4);
-        Vehiculo auto = new Auto();
 
         juego.agregarElemento(new Pozo(), 0,0, new Este());
-        juego.jugar("carlos", auto);
+        juego.jugar("carlos", new Auto());
         juego.moverse(new Este());
 
-        assertEquals(4, auto.movimientos);
+        assertEquals(4, juego.movimientosJugador());
     }
     @Test
     public void testUna4x4AtraviesaCiudadYSeEncuentraPozo() {
         //Una 4x4 se desplaza desde el origen hacia el Este, encuentra un pozo y no suma movimientos (primer pozo)
         Juego juego = new Juego(4,4);
-        Vehiculo camioneta = new CuatroxCuatro();
 
         juego.agregarElemento(new Pozo(), 0,0, new Este());
-        juego.jugar("carlos", camioneta);
+        juego.jugar("carlos", new CuatroxCuatro());
         juego.moverse(new Este());
 
-        assertEquals(1, camioneta.movimientos);
+        assertEquals(1, juego.movimientosJugador());
     }
     @Test
     public void testUnaMotoAtraviesaCiudadYSeEncuentraPiquete() {
@@ -80,6 +77,6 @@ public class ObstaculosTest {
         juego.moverse(new Este());
         juego.moverse(new Este());
 
-        assertEquals(6, juego.movimientosJugador());
+        assertEquals(6.4, juego.movimientosJugador());
     }
 }

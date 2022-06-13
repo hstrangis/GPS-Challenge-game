@@ -6,7 +6,7 @@ public class CuatroxCuatro extends Vehiculo{
     CuatroxCuatro(){
         this.movimientos = 0;
     }
-    CuatroxCuatro(int movimientos){
+    CuatroxCuatro(double movimientos){
         this.movimientos = movimientos;
     }
     @Override
