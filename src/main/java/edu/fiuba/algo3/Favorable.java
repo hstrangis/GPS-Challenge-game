@@ -1,12 +1,11 @@
 package edu.fiuba.algo3;
 
 public class Favorable extends Sorpresa{
-    public boolean interactuar(Vehiculo vehiculo){
+    public boolean interactuar(EstadoVehiculo vehiculo){
         return vehiculo.interactuar(this);
     }
 
-    public double actuar(double movimientos) {
-        movimientos = movimientos * 0.80;
-        return movimientos;
+    public void actuar(Movimientos movimientos) {
+        movimientos.multiplicar(0.80);
     }
 }

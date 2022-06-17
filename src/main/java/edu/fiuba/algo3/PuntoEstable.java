@@ -4,5 +4,5 @@ public interface PuntoEstable {
 
     void agregarCuadra(Cuadra cuadra, Sentido sentido) ;
     boolean validarSentido(Sentido sentido);
-    PuntoEstable siguientePunto(Sentido sentido, Jugador jugador);
+    PuntoEstable siguientePunto(Sentido sentido, Vehiculo vehiculo);
 }

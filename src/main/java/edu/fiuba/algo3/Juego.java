@@ -2,7 +2,7 @@ package edu.fiuba.algo3;
 
 public class Juego {
     private Ciudad ciudad;
-    private Jugador jugador;
+    protected Jugador jugador;
 
     Juego(int largo, int ancho){
         ciudad = new Ciudad(largo, ancho);
@@ -19,17 +19,12 @@ public class Juego {
     public void agregarElemento(Elemento elemento, int fila, int columna, Sentido sentido) {
         ciudad.agregarElemento(elemento, fila, columna, sentido);
     }
+    //Para pruebas
     public Cruce puntoPartida(){
         return ciudad.puntoPartida();
     }
-    public PuntoEstable puntoJugador(){
-        return jugador.ubicacion();
-    }
-    public double movimientosJugador(){return jugador.movimientos();}
 
-    //Para pruebas
-    public Vehiculo obtenerVehiculo(String nickJugador) {
-        return jugador.obtenerVehiculo();
-    }
+
+
 
 }

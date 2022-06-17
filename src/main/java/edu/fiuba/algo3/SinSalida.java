@@ -10,7 +10,7 @@ public class SinSalida implements PuntoEstable{
     public boolean validarSentido(Sentido sentido) {
         return sentido.validar(sentidoIngreso);
     }
-    public PuntoEstable siguientePunto(Sentido sentido, Jugador jugador) {
-        return cuadraSinSalida.siguientePunto(sentido, jugador);
+    public PuntoEstable siguientePunto(Sentido sentido, Vehiculo vehiculo) {
+        return cuadraSinSalida.siguientePunto(sentido, vehiculo);
     }
 }

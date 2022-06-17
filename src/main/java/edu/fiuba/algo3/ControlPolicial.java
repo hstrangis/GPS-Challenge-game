@@ -7,7 +7,7 @@ public class ControlPolicial extends Obstaculo {
         return (numeroAleatorio.nextDouble() < probabilidad);
     }
 
-    public boolean interactuar(Vehiculo vehiculo){
+    public boolean interactuar(EstadoVehiculo vehiculo){
         return vehiculo.interactuar(this);
     }
 }

@@ -2,32 +2,24 @@
 package edu.fiuba.algo3;
 
 
-public abstract class Vehiculo {
-    protected double movimientos;
+public class Vehiculo {
+    protected Movimientos movimientos;
+    protected EstadoVehiculo estado;
 
-    protected Jugador conductor;
-
-    public void agregarConductor(Jugador jugador){
-        conductor = jugador;
+    Vehiculo(EstadoVehiculo estado){
+        this.estado = estado;
+        estado.configurar(this);
+        movimientos = new Movimientos();
     }
+
     public void moverse(){
-        movimientos += 1;
+        movimientos.sumar(1);
     }
-    protected boolean interactuar(Favorable favorable){
-        movimientos = favorable.actuar(movimientos);
-        return true;
+    public boolean interactuar(Elemento elemento){
+        return elemento.interactuar(estado);
     }
-    protected boolean interactuar(Desfavorable desfavorable){
-        movimientos = desfavorable.actuar(movimientos);
-        return true;
+    public void cambiarEstado(EstadoVehiculo estadoNuevo){
+        estado = estadoNuevo;
     }
-    protected boolean interactuar(CambioVehiculo cambioVehiculo){
-        conductor.cambiarVehiculo();
-        return true;
-    }
-    protected abstract boolean interactuar(Pozo pozo);
-    protected abstract boolean interactuar(ControlPolicial control);
-    protected abstract boolean interactuar(Piquete piquete);
-    protected abstract Vehiculo crearSiguiente();
 
 }

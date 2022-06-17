@@ -1,19 +1,17 @@
 package edu.fiuba.algo3;
 
-public class CuatroxCuatro extends Vehiculo{
+public class CuatroxCuatro extends EstadoVehiculo {
     private int pozosPisados;
 
-    CuatroxCuatro(){
-        this.movimientos = 0;
-    }
-    CuatroxCuatro(double movimientos){
-        this.movimientos = movimientos;
+    CuatroxCuatro(){}
+    CuatroxCuatro(Vehiculo vehiculo){
+        this.vehiculo = vehiculo;
     }
     @Override
     public boolean interactuar(Pozo pozo) {
         pozosPisados += 1;
         if (pozosPisados == 3) {
-            movimientos += 2;
+            vehiculo.movimientos.sumar(2);
             pozosPisados = 0;
         }
         return true;
@@ -21,7 +19,7 @@ public class CuatroxCuatro extends Vehiculo{
     @Override
     public boolean interactuar(ControlPolicial control){
         if(control.probabilidadDetencion(0.3)){
-            movimientos += 3;
+            vehiculo.movimientos.sumar(3);
         }
         return true;
     }
@@ -30,7 +28,7 @@ public class CuatroxCuatro extends Vehiculo{
         return false;
     }
 
-    public Vehiculo crearSiguiente(){
-        return new Moto(movimientos);
+    public EstadoVehiculo crearSiguiente(){
+        return new Moto(vehiculo);
     }
 }

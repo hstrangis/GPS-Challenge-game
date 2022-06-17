@@ -1,32 +1,30 @@
 package edu.fiuba.algo3;
 
 
-public class Moto extends Vehiculo{
-    Moto(){
-        this.movimientos = 0;
-    }
-    Moto(double movimientos){
-        this.movimientos = movimientos;
+public class Moto extends EstadoVehiculo {
+    Moto(){}
+    Moto(Vehiculo vehiculo){
+        this.vehiculo = vehiculo;
     }
     @Override
     public boolean interactuar(Pozo pozo){
-        movimientos += 3;
+        vehiculo.movimientos.sumar(3);
         return true;
     }
     @Override
     public boolean interactuar(ControlPolicial control){
         if(control.probabilidadDetencion(0.8)){
-            movimientos += 3;
+            vehiculo.movimientos.sumar(3);
         }
         return true;
     }
     @Override
     public boolean interactuar(Piquete piquete){
-        movimientos += 2;
+        vehiculo.movimientos.sumar(2);
         return true;
     }
 
-    public Vehiculo crearSiguiente(){
-        return new Auto(movimientos);
+    public EstadoVehiculo crearSiguiente(){
+        return new Auto(vehiculo);
     }
 }

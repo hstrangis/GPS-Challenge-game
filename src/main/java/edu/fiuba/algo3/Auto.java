@@ -1,23 +1,21 @@
 package edu.fiuba.algo3;
 
-public class Auto extends Vehiculo {
+public class Auto extends EstadoVehiculo {
 
-    Auto(){
-        this.movimientos = 0;
-    }
-    Auto(double movimientos){
-        this.movimientos = movimientos;
+    Auto(){}
+    Auto(Vehiculo vehiculo){
+        this.vehiculo = vehiculo;
     }
 
     @Override
     public boolean interactuar(Pozo pozo){
-        movimientos += 3;
+        vehiculo.movimientos.sumar(3);
         return true;
     }
     @Override
     public boolean interactuar(ControlPolicial control){
         if(control.probabilidadDetencion(0.5)){
-            movimientos += 3;
+            vehiculo.movimientos.sumar(3);
         }
         return true;
     }
@@ -26,7 +24,7 @@ public class Auto extends Vehiculo {
         return false;
     }
 
-    public Vehiculo crearSiguiente(){
-        return new CuatroxCuatro(movimientos);
+    public EstadoVehiculo crearSiguiente(){
+        return new CuatroxCuatro(vehiculo);
     }
 }
