@@ -1,5 +1,7 @@
 package edu.fiuba.algo3;
 
+import javafx.scene.image.Image;
+
 public class Auto extends EstadoVehiculo {
 
     Auto(){}
@@ -27,4 +29,6 @@ public class Auto extends EstadoVehiculo {
     public EstadoVehiculo crearSiguiente(){
         return new CuatroxCuatro(vehiculo);
     }
+
+    public Image diseño(){ return new Image("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\auto.png"); }
 }

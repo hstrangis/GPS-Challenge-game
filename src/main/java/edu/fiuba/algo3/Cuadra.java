@@ -16,8 +16,10 @@ public class Cuadra {
 
     public PuntoEstable siguientePunto(Sentido sentido, Vehiculo vehiculo) {
         PuntoEstable siguientePosicion;
-        if (interactuar(vehiculo))
+        if (interactuar(vehiculo)) {
             siguientePosicion = cruces.get(sentido.cuadra());
+            vehiculo.actualizarGrafica(sentido);
+        }
         else
             siguientePosicion = cruces.get(sentido.volver());
         return siguientePosicion;

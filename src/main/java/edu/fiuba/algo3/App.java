@@ -1,6 +1,8 @@
 package edu.fiuba.algo3;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,45 +23,82 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         stage.setTitle("Un paseo en Buenos Aires");
-        Movimientos movimientos = new Movimientos();
         Group root = new Group();
         var scene = new Scene(root, 840, 680);
+
+        Button norte = new Button("↑");
+        Button sur = new Button("↓");
+        Button este = new Button("→");
+        Button oeste = new Button("←");
+        norte.setTranslateX(420);
+        norte.setTranslateY(80);
+        sur.setTranslateX(420);
+        sur.setTranslateY(130);
+        este.setTranslateX(445);
+        este.setTranslateY(105);
+        oeste.setTranslateX(390);
+        oeste.setTranslateY(105);
+        root.getChildren().add(sur);
+        root.getChildren().add(norte);
+        root.getChildren().add(este);
+        root.getChildren().add(oeste);
+
+
+
+
+
         Text text = new Text();
-        String s = "Movimientos realizados " + movimientos.mostrar();
-        text.setText(s);
-        text.setX(350);
-        text.setY(50);
-        for (int fila = 0; fila < 4; fila++) {
-            for (int columna = 0; columna < 4; columna++) {
-                root.getChildren().add(new Rectangle(210 + columna*120, 250 + fila*90, 80,60));
-            }
-        }
-        Image auto = new Image("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\auto.png");
-        ImageView imageView = new ImageView(auto);
-        imageView.setFitHeight(40);
-        imageView.setFitWidth(60);
-        imageView.setX(285);
-        imageView.setY(300);
-
-        Image meta = new Image("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\meta.png");
-        ImageView imageView2 = new ImageView(meta);
-        imageView2.setFitHeight(60);
-        imageView2.setFitWidth(110);
-        imageView2.setX(600);
-        imageView2.setY(385);
-
-
-
         root.getChildren().add(text);
-        root.getChildren().add(imageView);
-        root.getChildren().add(imageView2);
+        Movimientos movimientos = new Movimientos(text);
+
+        Juego juego = new Juego(4,4, root);
+        juego.agregarElemento(new CambioVehiculo(), 0,0, new Sur());
+        juego.agregarElemento(new Piquete(), 1,0, new Sur());
+        juego.agregarElemento(new Pozo(), 0,0, new Este());
+        juego.agregarElemento(new ControlPolicial(), 0,1, new Este());
+        juego.agregarElemento(new Favorable(), 1,1, new Este());
+        Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
+        juego.jugar("carlos", vehiculo);
+
+        EventHandler<ActionEvent> avanzarNorte = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e)
+            {
+                juego.moverse(new Norte());
+            }
+        };
+
+        EventHandler<ActionEvent> avanzarSur = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e)
+            {
+                juego.moverse(new Sur());
+            }
+        };
+
+        EventHandler<ActionEvent> avanzarEste = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e)
+            {
+                juego.moverse(new Este());
+            }
+        };
+
+        EventHandler<ActionEvent> avanzarOeste = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e)
+            {
+                juego.moverse(new Oeste());
+            }
+        };
+
+        norte.setOnAction(avanzarNorte);
+        sur.setOnAction(avanzarSur);
+        este.setOnAction(avanzarEste);
+        oeste.setOnAction(avanzarOeste);
+
+
         stage.setScene(scene);
 
         stage.setResizable(false);
         stage.show();
-        movimientos.sumar(3);
-        text.setText("Movimientos realizados " + movimientos.mostrar());
-        stage.show();
+
     }
 
     public static void main(String[] args) {

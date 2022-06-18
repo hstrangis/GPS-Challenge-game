@@ -1,5 +1,7 @@
 package edu.fiuba.algo3;
 
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -61,20 +63,4 @@ public class ObstaculosTest {
         assertEquals(juego.puntoPartida(), juego.jugador.ubicacion);
     }
 
-    @Test
-    public void testNuevosCambiosSorpresas() {
-        Juego juego = new Juego(4,4);
-        Vehiculo vehiculo = new Vehiculo(new Auto());
-        juego.agregarElemento(new Pozo(), 0,0, new Este());
-        juego.agregarElemento(new CambioVehiculo(), 0,0, new Este());
-        juego.agregarElemento(new Pozo(), 0,0, new Este());
-        juego.agregarElemento(new CambioVehiculo(), 0,0, new Este());
-        juego.agregarElemento(new Pozo(), 0,0, new Este());
-        juego.agregarElemento(new Favorable(), 0,1, new Este());
-        juego.jugar("carlos", vehiculo);
-        juego.moverse(new Este());
-        juego.moverse(new Este());
-
-        assertEquals(6.4, vehiculo.movimientos.mostrar());
-    }
 }

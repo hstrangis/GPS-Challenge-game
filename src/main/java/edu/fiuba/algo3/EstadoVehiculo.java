@@ -1,5 +1,7 @@
 package edu.fiuba.algo3;
 
+import javafx.scene.image.Image;
+
 public abstract class EstadoVehiculo {
     protected Vehiculo vehiculo;
     public void configurar(Vehiculo vehiculo){
@@ -21,4 +23,6 @@ public abstract class EstadoVehiculo {
     protected abstract boolean interactuar(ControlPolicial control);
     protected abstract boolean interactuar(Piquete piquete);
     protected abstract EstadoVehiculo crearSiguiente();
+
+    protected abstract Image diseño();
 }

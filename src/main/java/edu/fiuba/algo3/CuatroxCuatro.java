@@ -1,5 +1,7 @@
 package edu.fiuba.algo3;
 
+import javafx.scene.image.Image;
+
 public class CuatroxCuatro extends EstadoVehiculo {
     private int pozosPisados;
 
@@ -31,4 +33,6 @@ public class CuatroxCuatro extends EstadoVehiculo {
     public EstadoVehiculo crearSiguiente(){
         return new Moto(vehiculo);
     }
+
+    public Image diseño(){ return new Image("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\4x4.png"); }
 }

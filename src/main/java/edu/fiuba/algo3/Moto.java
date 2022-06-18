@@ -1,6 +1,8 @@
 package edu.fiuba.algo3;
 
 
+import javafx.scene.image.Image;
+
 public class Moto extends EstadoVehiculo {
     Moto(){}
     Moto(Vehiculo vehiculo){
@@ -27,4 +29,6 @@ public class Moto extends EstadoVehiculo {
     public EstadoVehiculo crearSiguiente(){
         return new Auto(vehiculo);
     }
+
+    public Image diseño(){ return new Image("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\moto.png"); }
 }
