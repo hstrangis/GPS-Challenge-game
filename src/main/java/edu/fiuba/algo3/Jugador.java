@@ -18,14 +18,13 @@ public class Jugador {
         }
     }
 
+    public boolean consultarPosicion(PuntoEstable posicion){
+        return (ubicacion == posicion);
+    }
+
     //Para pruebas
     public Movimientos movimientos(){
         return vehiculo.movimientos;
     }
 
-    public PuntoEstable ubicacion(){
-        return ubicacion;
-    }
-
-    public Vehiculo obtenerVehiculo() { return vehiculo; }
 }

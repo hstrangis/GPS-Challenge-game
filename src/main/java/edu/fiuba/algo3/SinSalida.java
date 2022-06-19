@@ -1,8 +1,8 @@
 package edu.fiuba.algo3;
 
 public class SinSalida implements PuntoEstable{
-    private Cuadra cuadraSinSalida;
-    private Sentido sentidoIngreso;
+    protected Cuadra cuadraSinSalida;
+    protected Sentido sentidoIngreso;
     public void agregarCuadra(Cuadra cuadra, Sentido sentido) {
         cuadraSinSalida = cuadra;
         sentidoIngreso = sentido;

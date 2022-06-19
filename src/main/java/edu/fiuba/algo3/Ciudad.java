@@ -15,26 +15,15 @@ public class Ciudad {
     private final Group root;
 
     Ciudad(int largo, int ancho, Group root) {
-        crearMapa(largo, ancho);
         this.root = root;
         colocarGraficaMeta();
+        crearMapa(largo, ancho);
         for (int fila = 0; fila < largo; fila++) {
             for (int columna = 0; columna < ancho; columna++) {
                 this.root.getChildren().add(new Rectangle(210 + columna*120, 250 + fila*90, 80,60));
             }
         }
     }
-
-    private void colocarGraficaMeta(){
-        Image meta = new Image("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\meta.png");
-        ImageView imageView = new ImageView(meta);
-        imageView.setFitHeight(60);
-        imageView.setFitWidth(110);
-        imageView.setX(600);
-        imageView.setY(385);
-        this.root.getChildren().add(imageView);
-    }
-
 
     private void crearMapa(int largo, int ancho) {
         Cruce actual;
@@ -58,7 +47,10 @@ public class Ciudad {
                     borde = new SinSalida();
                     crearCuadra(borde, actual, new Sur(), new Norte());
                 }
-                if (columna == ancho-1) {
+                if (columna == ancho-1 && fila == 1) {
+                    crearCuadra(actual, meta, new Este(), new Oeste());
+                }
+                else if (columna == ancho-1) {
                     borde = new SinSalida();
                     crearCuadra(actual, borde, new Este(), new Oeste());
                 }
@@ -93,6 +85,32 @@ public class Ciudad {
         vehiculoDiseño.ubicar(INICIAL_X,INICIAL_Y);
         vehiculo.agregarGrafica(vehiculoDiseño);
         return matrizMapa[0][0];
+    }
+
+    public boolean chequearVictoria(){
+        boolean victoria = meta.consultarVictoria();
+        if (victoria){
+            Text text = new Text("Felicitaciones, has llegado a la meta!!");
+            text.setTabSize(200);
+            text.resizeRelocate(340, 50, 100, 100);
+            root.getChildren().add(text);
+        }
+        return victoria;
+    }
+
+    public void agregarMeta(Jugador jugador){
+        meta.configurar(jugador);
+    }
+
+    private void colocarGraficaMeta(){
+        meta = new Meta();
+        Image meta = new Image("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\meta.png");
+        ImageView imageView = new ImageView(meta);
+        imageView.setFitHeight(60);
+        imageView.setFitWidth(110);
+        imageView.setX(600);
+        imageView.setY(385);
+        this.root.getChildren().add(imageView);
     }
 
 }

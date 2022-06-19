@@ -2,7 +2,11 @@ package edu.fiuba.algo3;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
+
+import javax.swing.*;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ObstaculosTest {
