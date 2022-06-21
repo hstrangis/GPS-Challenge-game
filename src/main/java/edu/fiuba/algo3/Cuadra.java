@@ -1,6 +1,7 @@
 package edu.fiuba.algo3;
 
 import java.util.*;
+import java.util.ListIterator;
 import static edu.fiuba.algo3.Sentido.Direccion;
 
 public class Cuadra {
@@ -18,7 +19,7 @@ public class Cuadra {
         PuntoEstable siguientePosicion;
         if (interactuar(vehiculo)) {
             siguientePosicion = cruces.get(sentido.cuadra());
-            vehiculo.actualizarGrafica(sentido);
+            //vehiculo.actualizarGrafica(sentido);
         }
         else
             siguientePosicion = cruces.get(sentido.volver());
@@ -27,10 +28,15 @@ public class Cuadra {
 
     private boolean interactuar(Vehiculo vehiculo) {
         boolean permisoParaPasar = true;
-        for (Elemento elemento : elementos) {
+        ListIterator<Elemento> iter = elementos.listIterator();
+        while (iter.hasNext()){
+            Elemento elemento = iter.next();
             if (!vehiculo.interactuar(elemento)) {
                 permisoParaPasar = false;
                 break;
+            }
+            if (elemento.sosEliminable()){
+                iter.remove();
             }
         }
         return permisoParaPasar;

@@ -8,16 +8,16 @@ public class Juego {
     private boolean juegoTerminado;
 
     Juego(int largo, int ancho){
-        ciudad = new Ciudad(largo, ancho, new Group());
+        ciudad = new Ciudad(largo, ancho);
     }
 
     Juego(int largo, int ancho, Group root){
-        ciudad = new Ciudad(largo, ancho, root);
+        ciudad = new Ciudad(largo, ancho);
     }
 
     public void jugar(String nick, Vehiculo vehiculo){
-        jugador = new Jugador(nick, vehiculo, ciudad.puntoPartida(vehiculo));
-        ciudad.agregarMeta(jugador);
+        jugador = new Jugador(nick, vehiculo);
+        ciudad.prepararJugador(jugador);
     }
 
     public void moverse(Sentido sentido){
@@ -32,8 +32,5 @@ public class Juego {
     }
     //Para pruebas
 
-    public Cruce puntoPartida(){
-        return ciudad.puntoPartida(new Vehiculo(new Auto()));
-    }
 
 }

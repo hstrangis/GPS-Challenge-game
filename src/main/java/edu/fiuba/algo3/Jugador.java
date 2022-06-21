@@ -5,10 +5,13 @@ public class Jugador {
     protected PuntoEstable ubicacion;
     private Vehiculo vehiculo;
 
-    Jugador(String nick, Vehiculo vehiculo, PuntoEstable puntoPartida){
+    Jugador(String nick, Vehiculo vehiculo){
         this.nick = nick;
-        ubicacion = puntoPartida;
         this.vehiculo = vehiculo;
+    }
+
+    public void asignarPuntoPartida(PuntoEstable puntoPartida){
+        ubicacion = puntoPartida;
     }
 
     public void moverse(Sentido sentido) {

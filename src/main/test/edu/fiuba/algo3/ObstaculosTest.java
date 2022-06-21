@@ -61,10 +61,11 @@ public class ObstaculosTest {
         Vehiculo vehiculo = new Vehiculo(new Auto());
         juego.agregarElemento(new Piquete(), 0,0, new Este());
         juego.jugar("carlos", vehiculo);
+        PuntoEstable posicionInicial = juego.jugador.ubicacion;
         juego.moverse(new Este());
 
         assertEquals(1, vehiculo.movimientos.mostrar());
-        assertEquals(juego.puntoPartida(), juego.jugador.ubicacion);
+        assertEquals(posicionInicial, juego.jugador.ubicacion);
     }
 
 }

@@ -57,4 +57,17 @@ public class SorpresasTest {
         assertEquals(1, vehiculo.movimientos.mostrar());
         assertTrue(vehiculo.estado instanceof Moto);
     }
+
+    @Test
+    public void test4x4AtraviesaCiudadYEncuentraSorpresaCambioDeVehiculoDespuesVuelveParaAtrasPeroLaSorpresaYaNoEsta() {
+        Juego juego = new Juego(4,4);
+        Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro());
+        juego.agregarElemento(new CambioVehiculo(), 0,0, new Este());
+        juego.jugar("Seba", vehiculo);
+        juego.moverse(new Este());
+        juego.moverse(new Oeste());
+
+        assertEquals(2, vehiculo.movimientos.mostrar());
+        assertTrue(vehiculo.estado instanceof Moto);
+    }
 }
