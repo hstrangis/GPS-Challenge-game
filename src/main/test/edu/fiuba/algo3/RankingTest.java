@@ -3,7 +3,7 @@ package edu.fiuba.algo3;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MetaTest {
+public class RankingTest {
     @Test
     public void testUnaHaceDosMovimientosYEncuentraMeta() {
         Vehiculo moto = new Vehiculo(new Moto());
