@@ -30,4 +30,5 @@ public class Jugador {
         return vehiculo.movimientos;
     }
 
+    public String nombre() { return nick; }
 }

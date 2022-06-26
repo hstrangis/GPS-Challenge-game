@@ -5,14 +5,17 @@ import javafx.scene.Group;
 public class Juego {
     private Ciudad ciudad;
     protected Jugador jugador;
+    protected Ranking ranking;
     private boolean juegoTerminado;
 
-    Juego(int largo, int ancho){
+    Juego(int largo, int ancho) {
         ciudad = new Ciudad(largo, ancho);
+        ranking = new Ranking();
     }
 
     Juego(int largo, int ancho, Group root){
         ciudad = new Ciudad(largo, ancho);
+        ranking = new Ranking();
     }
 
     public void jugar(String nick, Vehiculo vehiculo){
@@ -23,12 +26,17 @@ public class Juego {
     public void moverse(Sentido sentido){
         if (!juegoTerminado) {
             jugador.moverse(sentido);
-            juegoTerminado = ciudad.chequearVictoria();
+            if(juegoTerminado = ciudad.chequearVictoria()) {
+                ranking.agregarJugador(jugador);
+            }
         }
     }
 
     public void agregarElemento(Elemento elemento, int fila, int columna, Sentido sentido) {
         ciudad.agregarElemento(elemento, fila, columna, sentido);
+    }
+    public void verRanking() {
+        ranking.mostrar();
     }
     //Para pruebas
 
