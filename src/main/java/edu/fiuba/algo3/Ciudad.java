@@ -48,6 +48,7 @@ public class Ciudad {
         ancho = ancho - 1;
         largoMapa = largo;
         anchoMapa = ancho;
+        int filaMeta = (int) (Math.random() * (largo));
         matrizMapa = new Cruce[largo][ancho];
         for (int fila = 0; fila < largo; fila++) {
             for (int columna = 0; columna < ancho; columna++) {
@@ -65,7 +66,7 @@ public class Ciudad {
                     borde = new SinSalida();
                     crearCuadra(borde, actual, new Sur(), new Norte());
                 }
-                if (columna == ancho-1 && fila == (int) (Math.random() * (largo))) {
+                if (columna == ancho-1 && fila == filaMeta) {
                     crearCuadra(actual, meta, new Este(), new Oeste());
                     colocarGraficaMeta(fila, columna);
                 }
@@ -90,7 +91,7 @@ public class Ciudad {
     public void agregarElemento(Elemento elemento, int fila, int columna, Sentido sentido){
         Grafica grafica = elemento.grafica();
         grafica.configurarGrafica(root);
-        grafica.ubicar(INICIAL_X + 10 + (columna)*120, INICIAL_Y + 12 + (fila)*120);
+        grafica.ubicar(INICIAL_X + 12 + (columna)*120, INICIAL_Y + 12 + (fila)*120);
         elemento.implementarGrafica();
         matrizMapa[fila][columna].agregarElemento(elemento, sentido);
     }
@@ -107,7 +108,7 @@ public class Ciudad {
         jugador.asignarPuntoPartida(matrizMapa[0][0]);
         Grafica grafica = jugador.vehiculo().grafica();
         grafica.configurarGrafica(root);
-        grafica.ubicar(INICIAL_X + 5 + (0)*120, INICIAL_Y + 10 + (0)*90);
+        grafica.ubicar(INICIAL_X + 5 + (0)*120, INICIAL_Y + 3 + (0)*90);
         //jugador.asignarPuntoPartida(puntoPartidaAleatorio());
         meta.configurar(jugador);
     }

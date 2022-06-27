@@ -2,7 +2,7 @@ package edu.fiuba.algo3;
 
 
 public abstract class Sentido {
-    static final int MOVER_ELEMENTO = 30;
+    static final int MOVER_ELEMENTO = 28;
     static final int MOVER_VEHICULO_X = 120;
     static final int MOVER_VEHICULO_Y = 120;
     static final int SIN_MOVER = 0;

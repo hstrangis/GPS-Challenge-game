@@ -15,7 +15,7 @@ public class Movimientos {
     Movimientos(Text aviso){
         movimientos = 0;
         this.aviso = aviso;
-        this.aviso.setX(350);
+        this.aviso.setX(360);
         this.aviso.setY(200);
         String cartel = "Movimientos realizados: " + movimientos;
         aviso.setText(cartel);
