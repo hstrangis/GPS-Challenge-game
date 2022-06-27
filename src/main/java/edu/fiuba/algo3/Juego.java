@@ -8,13 +8,13 @@ public class Juego {
     protected Ranking ranking;
     private boolean juegoTerminado;
 
-    Juego(int largo, int ancho) {
-        ciudad = new Ciudad(largo, ancho);
+    Juego(int largo, int ancho, Meta meta) {
+        ciudad = new Ciudad(largo, ancho, meta);
         ranking = new Ranking();
     }
 
-    Juego(int largo, int ancho, Group root){
-        ciudad = new Ciudad(largo, ancho);
+    Juego(int largo, int ancho, Group root, Meta meta){
+        ciudad = new Ciudad(largo, ancho, root, meta);
         ranking = new Ranking();
     }
 

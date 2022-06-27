@@ -38,4 +38,8 @@ public class Jugador {
     public boolean mismoJugador(Jugador jugador) {
         return jugador.nick.equals(this.nick);
     }
+
+    public Vehiculo vehiculo(){
+        return vehiculo;
+    }
 }

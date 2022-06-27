@@ -5,12 +5,14 @@ package edu.fiuba.algo3;
 public class Vehiculo {
     protected Movimientos movimientos;
     protected EstadoVehiculo estado;
-    //private GraficaVehiculo diseño;
+    private Grafica diseño;
 
-    Vehiculo(EstadoVehiculo estado, Movimientos movimientos){
+    Vehiculo(EstadoVehiculo estado, Movimientos movimientos, Grafica diseño){
         this.estado = estado;
         estado.configurar(this);
         this.movimientos = movimientos;
+        this.diseño = diseño;
+        diseño.cambiarDiseño(estado.diseño());
     }
 
     Vehiculo(EstadoVehiculo estado){
@@ -19,17 +21,12 @@ public class Vehiculo {
         movimientos = new Movimientos();
     }
 
-    public void agregarGrafica(GraficaVehiculo diseño){
-        //this.diseño = diseño;
-        //this.diseño.cambiarDiseño(estado.diseño());
-    }
-
     public void moverse(){
         movimientos.sumar(1);
     }
 
     public void actualizarGrafica(Sentido sentido){
-        //diseño.moverse(sentido);
+        diseño.moverse(sentido);
     }
     public boolean interactuar(Elemento elemento){
         boolean permisoParaPasar = elemento.interactuar(estado);
@@ -37,7 +34,10 @@ public class Vehiculo {
     }
     public void cambiarEstado(EstadoVehiculo estadoNuevo){
         estado = estadoNuevo;
-        //diseño.cambiarDiseño(estado.diseño());
+        diseño.cambiarDiseño(estado.diseño());
     }
 
+    public Grafica grafica(){
+        return diseño;
+    }
 }

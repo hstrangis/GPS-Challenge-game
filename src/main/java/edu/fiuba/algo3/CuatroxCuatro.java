@@ -34,5 +34,5 @@ public class CuatroxCuatro extends EstadoVehiculo {
         return new Moto(vehiculo);
     }
 
-    public Image diseño(){ return new Image("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\4x4.png"); }
+    public String diseño(){ return "file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\4x4.png"; }
 }

@@ -19,7 +19,7 @@ public class Cruce implements PuntoEstable {
         cuadras.put(sentido.clave(), cuadra);
     }
     public void agregarElemento(Elemento elemento, Sentido sentido) {
-        cuadras.get(sentido.clave()).agregarElemento(elemento);
+        cuadras.get(sentido.clave()).agregarElemento(elemento, sentido);
     }
 }
 

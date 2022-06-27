@@ -10,23 +10,35 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Ciudad {
     static final int INICIAL_X = 280;
-    static final int INICIAL_Y = 300;
+    static final int INICIAL_Y = 325;
     private Cruce[][] matrizMapa;
     private int largoMapa = 0;
     private int anchoMapa = 0;
 
     private Meta meta;
-    //private final Group root;
+    private final Group root;
 
-    Ciudad(int largo, int ancho) {
-        //this.root = root;
-        colocarGraficaMeta();
+    Ciudad(int largo, int ancho, Meta meta) {
+        this.root = new Group();
+        //root.setManaged(false);
+        this.meta = meta;
         crearMapa(largo, ancho);
-        //for (int fila = 0; fila < largo; fila++) {
-            //for (int columna = 0; columna < ancho; columna++) {
-                //this.root.getChildren().add(new Rectangle(210 + columna*120, 250 + fila*90, 80,60));
-            //}
-        //}
+        for (int fila = 0; fila < largo; fila++) {
+            for (int columna = 0; columna < ancho; columna++) {
+                this.root.getChildren().add(new Rectangle(210 + columna*120, 250 + fila*120, 80,80));
+            }
+        }
+    }
+
+    Ciudad(int largo, int ancho, Group root, Meta meta) {
+        this.root = root;
+        this.meta = meta;
+        crearMapa(largo, ancho);
+        for (int fila = 0; fila < largo; fila++) {
+            for (int columna = 0; columna < ancho; columna++) {
+                this.root.getChildren().add(new Rectangle(210 + columna*120, 250 + fila*120, 80,80));
+            }
+        }
     }
 
     private void crearMapa(int largo, int ancho) {
@@ -53,8 +65,9 @@ public class Ciudad {
                     borde = new SinSalida();
                     crearCuadra(borde, actual, new Sur(), new Norte());
                 }
-                if (columna == ancho-1 && fila == 1) {
+                if (columna == ancho-1 && fila == (int) (Math.random() * (largo))) {
                     crearCuadra(actual, meta, new Este(), new Oeste());
+                    colocarGraficaMeta(fila, columna);
                 }
                 else if (columna == ancho-1) {
                     borde = new SinSalida();
@@ -75,13 +88,11 @@ public class Ciudad {
     }
 
     public void agregarElemento(Elemento elemento, int fila, int columna, Sentido sentido){
+        Grafica grafica = elemento.grafica();
+        grafica.configurarGrafica(root);
+        grafica.ubicar(INICIAL_X + 10 + (columna)*120, INICIAL_Y + 12 + (fila)*120);
+        elemento.implementarGrafica();
         matrizMapa[fila][columna].agregarElemento(elemento, sentido);
-        //ImageView imageView = new ImageView();
-        //root.getChildren().add(imageView);
-        //GraficaElemento elementoDiseño = new GraficaElemento(imageView);
-        //elementoDiseño.ubicar(INICIAL_X + 5 + (columna)*120, INICIAL_Y + 10 + (fila)*90);
-        //elementoDiseño.moverse(sentido);
-        //elemento.agregarGrafica(elementoDiseño);
     }
     private PuntoEstable puntoPartidaAleatorio() {
         int filaAleartoria, columnaAleatoria;
@@ -94,30 +105,30 @@ public class Ciudad {
     }
     public void prepararJugador(Jugador jugador){
         jugador.asignarPuntoPartida(matrizMapa[0][0]);
+        Grafica grafica = jugador.vehiculo().grafica();
+        grafica.configurarGrafica(root);
+        grafica.ubicar(INICIAL_X + 5 + (0)*120, INICIAL_Y + 10 + (0)*90);
         //jugador.asignarPuntoPartida(puntoPartidaAleatorio());
         meta.configurar(jugador);
     }
 
     public boolean chequearVictoria(){
         boolean victoria = meta.consultarVictoria();
-        //if (victoria){
-            //Text text = new Text("Felicitaciones, has llegado a la meta!!");
-            //text.setTabSize(200);
-            //text.resizeRelocate(340, 50, 100, 100);
-            //root.getChildren().add(text);
-        //}
+        if (victoria){
+            Text text = new Text("Felicitaciones, has llegado a la meta!!");
+            text.setTabSize(200);
+            text.resizeRelocate(340, 50, 100, 100);
+            root.getChildren().add(text);
+        }
         return victoria;
     }
 
-    private void colocarGraficaMeta(){
-        meta = new Meta();
-        //Image meta = new Image("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\meta.png");
-        //ImageView imageView = new ImageView(meta);
-        //imageView.setFitHeight(60);
-        //imageView.setFitWidth(110);
-        //imageView.setX(600);
-        //imageView.setY(385);
-        //this.root.getChildren().add(imageView);
+    private void colocarGraficaMeta(int fila, int columna){
+        Grafica grafica = meta.grafica();
+        grafica.configurarGrafica(root);
+        grafica.ubicar(INICIAL_X + 5 + (columna)*170, INICIAL_Y + (fila)*120);
+        grafica.cambiarDiseño("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\meta.png");
+        grafica.cambiarTamaño(60,60);
     }
 
 }

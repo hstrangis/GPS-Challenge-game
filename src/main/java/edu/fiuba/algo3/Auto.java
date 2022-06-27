@@ -30,5 +30,5 @@ public class Auto extends EstadoVehiculo {
         return new CuatroxCuatro(vehiculo);
     }
 
-    public Image diseño(){ return new Image("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\auto.png"); }
+    public String diseño(){ return "file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\auto.png"; }
 }

@@ -2,7 +2,9 @@ package edu.fiuba.algo3;
 
 public class Desfavorable extends Sorpresa{
 
-    Desfavorable(){};
+    Desfavorable(Grafica diseño){
+        this.diseño = diseño;
+    };
     public boolean interactuar(EstadoVehiculo vehiculo){
         return vehiculo.interactuar(this);
     }

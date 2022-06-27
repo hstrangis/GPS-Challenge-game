@@ -24,7 +24,7 @@ public class App extends Application {
     public void start(Stage stage) {
         stage.setTitle("Un paseo en Buenos Aires");
         Group root = new Group();
-        var scene = new Scene(root, 840, 680);
+        var scene = new Scene(root, 840, 780);
 
         Button norte = new Button("↑");
         Button sur = new Button("↓");
@@ -51,13 +51,15 @@ public class App extends Application {
         root.getChildren().add(text);
         Movimientos movimientos = new Movimientos(text);
 
-        Juego juego = new Juego(4,4, root);
-        juego.agregarElemento(new CambioVehiculo(), 0,0, new Sur());
-        juego.agregarElemento(new Piquete(), 1,0, new Sur());
-        juego.agregarElemento(new Pozo(), 0,0, new Este());
-        juego.agregarElemento(new ControlPolicial(), 0,1, new Este());
-        juego.agregarElemento(new Favorable(), 1,1, new Este());
-        Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
+        Juego juego = new Juego(4,4, root, new Meta(new GraficaVehiculo()));
+        juego.agregarElemento(new CambioVehiculo(new GraficaElemento()), 0,0, new Sur());
+        juego.agregarElemento(new Piquete(new GraficaElemento()), 1,0, new Sur());
+        juego.agregarElemento(new Pozo(new GraficaElemento()), 0,0, new Este());
+        juego.agregarElemento(new ControlPolicial(new GraficaElemento()), 0,1, new Este());
+        juego.agregarElemento(new Favorable(new GraficaElemento()), 1,1, new Este());
+        juego.agregarElemento(new Piquete(new GraficaElemento()), 1,1, new Este());
+        juego.agregarElemento(new Pozo(new GraficaElemento()), 1,1, new Este());
+        Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos, new GraficaVehiculo());
         juego.jugar("carlos", vehiculo);
 
         EventHandler<ActionEvent> avanzarNorte = new EventHandler<ActionEvent>() {

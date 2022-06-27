@@ -2,6 +2,12 @@ package edu.fiuba.algo3;
 
 public class Meta implements PuntoEstable{
     private Jugador jugador;
+
+    private Grafica diseño;
+
+    Meta(Grafica diseño){
+        this.diseño = diseño;
+    }
     public void agregarCuadra(Cuadra cuadra, Sentido sentido) {}
 
     public void configurar(Jugador jugador){
@@ -16,6 +22,10 @@ public class Meta implements PuntoEstable{
 
     public boolean consultarVictoria(){
         return jugador.consultarPosicion(this);
+    }
+
+    public Grafica grafica(){
+        return diseño;
     }
 }
 

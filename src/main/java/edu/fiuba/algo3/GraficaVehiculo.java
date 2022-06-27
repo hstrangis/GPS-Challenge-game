@@ -4,11 +4,12 @@ import javafx.scene.image.ImageView;
 
 public class GraficaVehiculo extends Grafica{
 
-    GraficaVehiculo(ImageView skin){
-        this.skin = skin;
-        this.skin.setFitHeight(40);
-        this.skin.setFitWidth(60);
+    GraficaVehiculo(){
+        ImageView imageView = new ImageView();
+        skin = imageView;
+        cambiarTamaño(35,40);
     }
+
     public void moverse(Sentido sentido){
         sentido.moverGraficaVehiculo(this);
     }

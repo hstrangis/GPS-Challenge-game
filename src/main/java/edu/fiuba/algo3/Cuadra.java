@@ -13,16 +13,21 @@ public class Cuadra {
         cruces.put(Direccion.izquierda, izquierdo);
         cruces.put(Direccion.derecha, derecho);
         elementos = new ArrayList<>();
+
     }
 
     public PuntoEstable siguientePunto(Sentido sentido, Vehiculo vehiculo) {
         PuntoEstable siguientePosicion;
+        if (sentido.cuadra() == Direccion.izquierda)
+         Collections.reverse(elementos);
         if (interactuar(vehiculo)) {
             siguientePosicion = cruces.get(sentido.cuadra());
-            //vehiculo.actualizarGrafica(sentido);
+            vehiculo.actualizarGrafica(sentido);
         }
         else
             siguientePosicion = cruces.get(sentido.volver());
+        if (sentido.cuadra() == Direccion.izquierda)
+            Collections.reverse(elementos);
         return siguientePosicion;
     }
 
@@ -41,7 +46,10 @@ public class Cuadra {
         }
         return permisoParaPasar;
     }
-    public void agregarElemento(Elemento elemento) {
+    public void agregarElemento(Elemento elemento, Sentido sentido) {
         elementos.add(elemento);
+        for (int i = 0; i < elementos.size(); i++){
+            elemento.moverGrafica(sentido);
+        }
     }
 }
