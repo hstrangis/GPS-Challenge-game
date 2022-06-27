@@ -2,6 +2,8 @@
 package edu.fiuba.algo3;
 
 
+import javafx.scene.Group;
+
 public class Vehiculo {
     protected Movimientos movimientos;
     protected EstadoVehiculo estado;
@@ -12,7 +14,6 @@ public class Vehiculo {
         estado.configurar(this);
         this.movimientos = movimientos;
         this.diseño = diseño;
-        diseño.cambiarDiseño(estado.diseño());
     }
 
     Vehiculo(EstadoVehiculo estado){
@@ -25,7 +26,7 @@ public class Vehiculo {
         movimientos.sumar(1);
     }
 
-    public void actualizarGrafica(Sentido sentido){
+    public void moverGrafica(Sentido sentido){
         diseño.moverse(sentido);
     }
     public boolean interactuar(Elemento elemento){
@@ -37,7 +38,10 @@ public class Vehiculo {
         diseño.cambiarDiseño(estado.diseño());
     }
 
-    public Grafica grafica(){
-        return diseño;
+    public void implementarGrafica(int x, int y, Group root){
+        diseño.configurarGrafica(root);
+        diseño.ubicar(x, y);
+        diseño.cambiarDiseño(estado.diseño());
     }
+
 }

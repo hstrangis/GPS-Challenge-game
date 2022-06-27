@@ -22,7 +22,7 @@ public class Cuadra {
          Collections.reverse(elementos);
         if (interactuar(vehiculo)) {
             siguientePosicion = cruces.get(sentido.cuadra());
-            vehiculo.actualizarGrafica(sentido);
+            vehiculo.moverGrafica(sentido);
         }
         else
             siguientePosicion = cruces.get(sentido.volver());

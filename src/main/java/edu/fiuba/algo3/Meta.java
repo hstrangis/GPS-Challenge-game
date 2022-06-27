@@ -1,5 +1,7 @@
 package edu.fiuba.algo3;
 
+import javafx.scene.Group;
+
 public class Meta implements PuntoEstable{
     private Jugador jugador;
 
@@ -24,8 +26,12 @@ public class Meta implements PuntoEstable{
         return jugador.consultarPosicion(this);
     }
 
-    public Grafica grafica(){
-        return diseño;
+    public void implementarGrafica(int x, int y, Group root){
+        diseño.configurarGrafica(root);
+        diseño.ubicar(x, y);
+        diseño.cambiarDiseño("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\meta.png");
+        diseño.cambiarTamaño(60,60);
     }
+
 }
 

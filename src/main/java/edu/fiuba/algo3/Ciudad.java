@@ -89,10 +89,7 @@ public class Ciudad {
     }
 
     public void agregarElemento(Elemento elemento, int fila, int columna, Sentido sentido){
-        Grafica grafica = elemento.grafica();
-        grafica.configurarGrafica(root);
-        grafica.ubicar(INICIAL_X + 12 + (columna)*120, INICIAL_Y + 12 + (fila)*120);
-        elemento.implementarGrafica();
+        elemento.implementarGrafica(INICIAL_X + 12 + (columna)*120, INICIAL_Y + 12 + (fila)*120,root);
         matrizMapa[fila][columna].agregarElemento(elemento, sentido);
     }
     private PuntoEstable puntoPartidaAleatorio() {
@@ -106,9 +103,7 @@ public class Ciudad {
     }
     public void prepararJugador(Jugador jugador){
         jugador.asignarPuntoPartida(matrizMapa[0][0]);
-        Grafica grafica = jugador.vehiculo().grafica();
-        grafica.configurarGrafica(root);
-        grafica.ubicar(INICIAL_X + 5 + (0)*120, INICIAL_Y + 3 + (0)*90);
+        jugador.vehiculo().implementarGrafica(INICIAL_X + 5 + (0)*120, INICIAL_Y + 3 + (0)*90, root);
         //jugador.asignarPuntoPartida(puntoPartidaAleatorio());
         meta.configurar(jugador);
     }
@@ -125,11 +120,7 @@ public class Ciudad {
     }
 
     private void colocarGraficaMeta(int fila, int columna){
-        Grafica grafica = meta.grafica();
-        grafica.configurarGrafica(root);
-        grafica.ubicar(INICIAL_X + 5 + (columna)*170, INICIAL_Y + (fila)*120);
-        grafica.cambiarDiseño("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\meta.png");
-        grafica.cambiarTamaño(60,60);
+        meta.implementarGrafica(INICIAL_X + 5 + (columna)*170, INICIAL_Y + (fila)*120, root);
     }
 
 }
