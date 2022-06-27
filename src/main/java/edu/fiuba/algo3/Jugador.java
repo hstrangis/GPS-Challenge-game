@@ -1,9 +1,9 @@
 package edu.fiuba.algo3;
 
 public class Jugador {
-    private String nick;
+    private final String nick;
     protected PuntoEstable ubicacion;
-    private Vehiculo vehiculo;
+    private final Vehiculo vehiculo;
 
     Jugador(String nick, Vehiculo vehiculo){
         this.nick = nick;
@@ -31,4 +31,11 @@ public class Jugador {
     }
 
     public String nombre() { return nick; }
+
+    public boolean tieneMasOIgualMovimientosQue(Jugador jugador) {
+        return Double.compare(this.movimientos().mostrar(), jugador.movimientos().mostrar()) >= 0;
+    }
+    public boolean mismoJugador(Jugador jugador) {
+        return jugador.nick.equals(this.nick);
+    }
 }

@@ -5,11 +5,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Ciudad {
     static final int INICIAL_X = 280;
     static final int INICIAL_Y = 300;
     private Cruce[][] matrizMapa;
+    private int largoMapa = 0;
+    private int anchoMapa = 0;
 
     private Meta meta;
     //private final Group root;
@@ -30,6 +34,8 @@ public class Ciudad {
         SinSalida borde;
         largo = largo - 1;
         ancho = ancho - 1;
+        largoMapa = largo;
+        anchoMapa = ancho;
         matrizMapa = new Cruce[largo][ancho];
         for (int fila = 0; fila < largo; fila++) {
             for (int columna = 0; columna < ancho; columna++) {
@@ -77,9 +83,18 @@ public class Ciudad {
         //elementoDiseño.moverse(sentido);
         //elemento.agregarGrafica(elementoDiseño);
     }
-
+    private PuntoEstable puntoPartidaAleatorio() {
+        int filaAleartoria, columnaAleatoria;
+        columnaAleatoria = ThreadLocalRandom.current().nextInt(1, anchoMapa);
+        if (columnaAleatoria == 1) {
+            filaAleartoria = ThreadLocalRandom.current().nextInt(1, largoMapa);
+        }
+        else filaAleartoria = new Random().nextBoolean() ? 1 : largoMapa - 1;
+        return matrizMapa[filaAleartoria][columnaAleatoria];
+    }
     public void prepararJugador(Jugador jugador){
         jugador.asignarPuntoPartida(matrizMapa[0][0]);
+        //jugador.asignarPuntoPartida(puntoPartidaAleatorio());
         meta.configurar(jugador);
     }
 
