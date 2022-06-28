@@ -30,5 +30,5 @@ public class Moto extends EstadoVehiculo {
         return new Auto(vehiculo);
     }
 
-    public String diseño(){ return "file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\moto.png"; }
+    public String diseño(){ return "file:src\\main\\java\\edu\\fiuba\\algo3\\moto.png"; }
 }

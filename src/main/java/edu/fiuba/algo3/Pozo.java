@@ -10,7 +10,7 @@ public class Pozo extends Obstaculo {
     public void implementarGrafica(int x, int y, Group root){
         diseño.configurarGrafica(root);
         diseño.ubicar(x, y);
-        diseño.cambiarDiseño("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\pozo.png");
+        diseño.cambiarDiseño("file:src\\main\\java\\edu\\fiuba\\algo3\\pozo.png");
     }
 
     public boolean interactuar(EstadoVehiculo vehiculo){

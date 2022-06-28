@@ -13,7 +13,7 @@ public class ControlPolicial extends Obstaculo {
     public void implementarGrafica(int x, int y, Group root){
         diseño.configurarGrafica(root);
         diseño.ubicar(x, y);
-        diseño.cambiarDiseño("file:D:\\Documentos\\FIUBA\\programacion\\java\\algo3_tp2\\src\\main\\java\\edu\\fiuba\\algo3\\controlPolicial.png");
+        diseño.cambiarDiseño("file:src\\main\\java\\edu\\fiuba\\algo3\\controlPolicial.png");
     }
     public boolean probabilidadDetencion(double probabilidad) {
         Random numeroAleatorio = new Random();
