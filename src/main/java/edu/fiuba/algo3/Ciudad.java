@@ -14,15 +14,12 @@ public class Ciudad {
     private Cruce[][] matrizMapa;
     private int largoMapa = 0;
     private int anchoMapa = 0;
-
-    private Meta meta;
     private final Group root;
 
     Ciudad(int largo, int ancho, Meta meta) {
         this.root = new Group();
         //root.setManaged(false);
-        this.meta = meta;
-        crearMapa(largo, ancho);
+        crearMapa(largo, ancho, meta);
         for (int fila = 0; fila < largo; fila++) {
             for (int columna = 0; columna < ancho; columna++) {
                 this.root.getChildren().add(new Rectangle(210 + columna*120, 250 + fila*120, 80,80));
@@ -32,8 +29,7 @@ public class Ciudad {
 
     Ciudad(int largo, int ancho, Group root, Meta meta) {
         this.root = root;
-        this.meta = meta;
-        crearMapa(largo, ancho);
+        crearMapa(largo, ancho, meta);
         for (int fila = 0; fila < largo; fila++) {
             for (int columna = 0; columna < ancho; columna++) {
                 this.root.getChildren().add(new Rectangle(210 + columna*120, 250 + fila*120, 80,80));
@@ -41,7 +37,7 @@ public class Ciudad {
         }
     }
 
-    private void crearMapa(int largo, int ancho) {
+    private void crearMapa(int largo, int ancho, Meta meta) {
         Cruce actual;
         SinSalida borde;
         largo = largo - 1;
@@ -68,7 +64,7 @@ public class Ciudad {
                 }
                 if (columna == ancho-1 && fila == filaMeta) {
                     crearCuadra(actual, meta, new Este(), new Oeste());
-                    colocarGraficaMeta(fila, columna);
+                    colocarGraficaMeta(fila, columna, meta);
                 }
                 else if (columna == ancho-1) {
                     borde = new SinSalida();
@@ -93,33 +89,17 @@ public class Ciudad {
         matrizMapa[fila][columna].agregarElemento(elemento, sentido);
     }
     private PuntoEstable puntoPartidaAleatorio() {
-        int filaAleartoria, columnaAleatoria;
-        columnaAleatoria = ThreadLocalRandom.current().nextInt(1, anchoMapa);
-        if (columnaAleatoria == 1) {
-            filaAleartoria = ThreadLocalRandom.current().nextInt(1, largoMapa);
-        }
-        else filaAleartoria = new Random().nextBoolean() ? 1 : largoMapa - 1;
-        return matrizMapa[filaAleartoria][columnaAleatoria];
+        int filaAleartoria;
+        filaAleartoria = ThreadLocalRandom.current().nextInt(1, largoMapa);
+        return matrizMapa[filaAleartoria][0];
     }
     public void prepararJugador(Jugador jugador){
         jugador.asignarPuntoPartida(matrizMapa[0][0]);
         jugador.vehiculo().implementarGrafica(INICIAL_X + 5 + (0)*120, INICIAL_Y + 3 + (0)*90, root);
         //jugador.asignarPuntoPartida(puntoPartidaAleatorio());
-        meta.configurar(jugador);
     }
 
-    public boolean chequearVictoria(){
-        boolean victoria = meta.consultarVictoria();
-        if (victoria){
-            Text text = new Text("Felicitaciones, has llegado a la meta!!");
-            text.setTabSize(200);
-            text.resizeRelocate(340, 50, 100, 100);
-            root.getChildren().add(text);
-        }
-        return victoria;
-    }
-
-    private void colocarGraficaMeta(int fila, int columna){
+    private void colocarGraficaMeta(int fila, int columna, Meta meta){
         meta.implementarGrafica(INICIAL_X + 5 + (columna)*170, INICIAL_Y + (fila)*120, root);
     }
 

@@ -33,7 +33,8 @@ public class App extends Application {
         var principal = new Scene(root, 840, 780);
 
         //Inicializacion mapa
-        Juego juego = new Juego(4,4, root, new Meta(new GraficaVehiculo()));
+        Meta meta = new Meta(new GraficaVehiculo());
+        Juego juego = new Juego(4,4, root, meta);
         juego.agregarElemento(new CambioVehiculo(new GraficaElemento()), 0,0, new Sur());
         juego.agregarElemento(new Piquete(new GraficaElemento()), 1,0, new Sur());
         juego.agregarElemento(new Pozo(new GraficaElemento()), 0,0, new Este());
@@ -136,41 +137,42 @@ public class App extends Application {
         oeste.setTranslateY(105);
         root.getChildren().add(oeste);
 
-        EventHandler<ActionEvent> avanzarNorte = new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent e)
-            {
-                juego.moverse(new Norte());
-            }
-        };
 
-        EventHandler<ActionEvent> avanzarSur = new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent e)
-            {
-                juego.moverse(new Sur());
-            }
-        };
+            EventHandler<ActionEvent> avanzarOeste = new EventHandler<ActionEvent>() {
+                public void handle(ActionEvent e)
+                {
+                    juego.moverse(new Oeste());
+                }
+            };
 
-        EventHandler<ActionEvent> avanzarEste = new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent e)
-            {
-                juego.moverse(new Este());
-            }
-        };
+            EventHandler<ActionEvent> avanzarEste = new EventHandler<ActionEvent>() {
+                public void handle(ActionEvent e)
+                {
+                    juego.moverse(new Este());
+                }
+            };
 
-        EventHandler<ActionEvent> avanzarOeste = new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent e)
-            {
-                juego.moverse(new Oeste());
-            }
-        };
+            EventHandler<ActionEvent> avanzarNorte = new EventHandler<ActionEvent>() {
+                public void handle(ActionEvent e)
+                {
+                    juego.moverse(new Norte());
+                }
+            };
 
-        norte.setOnAction(avanzarNorte);
-        sur.setOnAction(avanzarSur);
-        este.setOnAction(avanzarEste);
-        oeste.setOnAction(avanzarOeste);
+            EventHandler<ActionEvent> avanzarSur = new EventHandler<ActionEvent>() {
+                public void handle(ActionEvent e)
+                {
+                    juego.moverse(new Sur());
+                }
+            };
 
-        stage.setResizable(false);
-        stage.show();
+            norte.setOnAction(avanzarNorte);
+            sur.setOnAction(avanzarSur);
+            este.setOnAction(avanzarEste);
+            oeste.setOnAction(avanzarOeste);
+
+            stage.setResizable(false);
+            stage.show();
 
     }
 

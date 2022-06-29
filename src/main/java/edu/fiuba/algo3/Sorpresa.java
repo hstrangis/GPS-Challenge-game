@@ -24,7 +24,5 @@ abstract class Sorpresa implements Elemento {
     public void moverGrafica(Sentido sentido){
         diseño.moverse(sentido);
     }
-
-
 }
 

@@ -3,18 +3,13 @@ package edu.fiuba.algo3;
 import javafx.scene.Group;
 
 public class Meta implements PuntoEstable{
-    private Jugador jugador;
-
+    private boolean llegadaJugador = false;
     private Grafica diseño;
 
     Meta(Grafica diseño){
         this.diseño = diseño;
     }
     public void agregarCuadra(Cuadra cuadra, Sentido sentido) {}
-
-    public void configurar(Jugador jugador){
-        this.jugador = jugador;
-    }
     public boolean validarSentido(Sentido sentido) {
         return false;
     }
@@ -23,7 +18,7 @@ public class Meta implements PuntoEstable{
     }
 
     public boolean consultarVictoria(){
-        return jugador.consultarPosicion(this);
+        return llegadaJugador;
     }
 
     public void implementarGrafica(int x, int y, Group root){
@@ -33,5 +28,8 @@ public class Meta implements PuntoEstable{
         diseño.cambiarTamaño(60,60);
     }
 
+    public void llegadaJugador(){
+        llegadaJugador = true;
+    }
 }
 

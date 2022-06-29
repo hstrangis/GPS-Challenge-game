@@ -13,4 +13,6 @@ public class SinSalida implements PuntoEstable{
     public PuntoEstable siguientePunto(Sentido sentido, Vehiculo vehiculo) {
         return cuadraSinSalida.siguientePunto(sentido, vehiculo);
     }
+
+    public void llegadaJugador(){}
 }

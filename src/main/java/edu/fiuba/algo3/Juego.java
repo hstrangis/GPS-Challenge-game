@@ -6,15 +6,18 @@ public class Juego {
     private Ciudad ciudad;
     protected Jugador jugador;
     protected Ranking ranking;
+    private Meta meta;
     private boolean juegoTerminado;
 
     Juego(int largo, int ancho, Meta meta) {
         ciudad = new Ciudad(largo, ancho, meta);
+        this.meta = meta;
         ranking = new Ranking();
     }
 
     Juego(int largo, int ancho, Group root, Meta meta){
         ciudad = new Ciudad(largo, ancho, root, meta);
+        this.meta = meta;
         ranking = new Ranking();
     }
 
@@ -26,7 +29,7 @@ public class Juego {
     public void moverse(Sentido sentido){
         if (!juegoTerminado) {
             jugador.moverse(sentido);
-            if(juegoTerminado = ciudad.chequearVictoria()) {
+            if(juegoTerminado = meta.consultarVictoria()) {
                 ranking.agregarJugador(jugador);
             }
         }
@@ -34,6 +37,11 @@ public class Juego {
 
     public void agregarElemento(Elemento elemento, int fila, int columna, Sentido sentido) {
         ciudad.agregarElemento(elemento, fila, columna, sentido);
+    }
+
+    public void juegoTerminado(){
+        juegoTerminado = true;
+        ranking.agregarJugador(jugador);
     }
     public void verRanking() {
         ranking.mostrar();
