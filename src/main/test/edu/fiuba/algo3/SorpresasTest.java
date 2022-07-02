@@ -1,4 +1,6 @@
 package edu.fiuba.algo3;
+import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.vista.MetaVista;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -7,9 +9,9 @@ public class SorpresasTest {
     @Test
     public void testAutoAtraviesaCiudadYEncuentraSorpresaFavorable() {
         Movimientos movimientos = new Movimientos();
-        Juego juego = new Juego(4,4, new Meta(new GraficaVacia()));
-        Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos, new GraficaVacia());
-        juego.agregarElemento(new Favorable(new GraficaVacia()), 0,0, new Este());
+        Juego juego = new Juego(4,4, new Meta());
+        Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
+        juego.agregarElemento(new Favorable(), 0,0, new Este());
         juego.jugar("Seba", vehiculo);
         juego.moverse(new Este());
 
@@ -18,9 +20,9 @@ public class SorpresasTest {
     @Test
     public void testAutoAtraviesaCiudadYEncuentraSorpresaDesfavorable() {
         Movimientos movimientos = new Movimientos();
-        Juego juego = new Juego(4,4, new Meta(new GraficaVacia()));
-        Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos, new GraficaVacia());
-        juego.agregarElemento(new Desfavorable(new GraficaVacia()), 0,0, new Este());
+        Juego juego = new Juego(4,4, new Meta());
+        Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
+        juego.agregarElemento(new Desfavorable(), 0,0, new Este());
         juego.jugar("Seba", vehiculo);
         juego.moverse(new Este());
 
@@ -29,9 +31,9 @@ public class SorpresasTest {
     @Test
     public void testAutoAtraviesaCiudadYEncuentraSorpresaCambioDeVehiculo() {
         Movimientos movimientos = new Movimientos();
-        Juego juego = new Juego(4,4, new Meta(new GraficaVacia()));
-        Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos, new GraficaVacia());
-        juego.agregarElemento(new CambioVehiculo(new GraficaVacia()), 0,0, new Este());
+        Juego juego = new Juego(4,4, new Meta());
+        Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
+        juego.agregarElemento(new CambioVehiculo(), 0,0, new Este());
         juego.jugar("Seba", vehiculo);
         juego.moverse(new Este());
 
@@ -41,9 +43,9 @@ public class SorpresasTest {
     @Test
     public void testMotoAtraviesaCiudadYEncuentraSorpresaCambioDeVehiculo() {
         Movimientos movimientos = new Movimientos();
-        Juego juego = new Juego(4,4, new Meta(new GraficaVacia()));
-        Vehiculo vehiculo = new Vehiculo(new Moto(), movimientos, new GraficaVacia());
-        juego.agregarElemento(new CambioVehiculo(new GraficaVacia()), 0,0, new Este());
+        Juego juego = new Juego(4,4, new Meta());
+        Vehiculo vehiculo = new Vehiculo(new Moto(), movimientos);
+        juego.agregarElemento(new CambioVehiculo(), 0,0, new Este());
         juego.jugar("Seba", vehiculo);
         juego.moverse(new Este());
 
@@ -53,9 +55,9 @@ public class SorpresasTest {
     @Test
     public void test4x4AtraviesaCiudadYEncuentraSorpresaCambioDeVehiculo() {
         Movimientos movimientos = new Movimientos();
-        Juego juego = new Juego(4,4,new Meta(new GraficaVacia()));
-        Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), movimientos, new GraficaVacia());
-        juego.agregarElemento(new CambioVehiculo(new GraficaVacia()), 0,0, new Este());
+        Juego juego = new Juego(4,4,new Meta());
+        Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), movimientos);
+        juego.agregarElemento(new CambioVehiculo(), 0,0, new Este());
         juego.jugar("Seba", vehiculo);
         juego.moverse(new Este());
 
@@ -66,9 +68,9 @@ public class SorpresasTest {
     @Test
     public void test4x4AtraviesaCiudadYEncuentraSorpresaCambioDeVehiculoDespuesVuelveParaAtrasPeroLaSorpresaYaNoEsta() {
         Movimientos movimientos = new Movimientos();
-        Juego juego = new Juego(4,4,new Meta(new GraficaVacia()));
-        Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), movimientos, new GraficaVacia());
-        juego.agregarElemento(new CambioVehiculo(new GraficaVacia()), 0,0, new Este());
+        Juego juego = new Juego(4,4,new Meta());
+        Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), movimientos);
+        juego.agregarElemento(new CambioVehiculo(), 0,0, new Este());
         juego.jugar("Seba", vehiculo);
         juego.moverse(new Este());
         juego.moverse(new Oeste());
