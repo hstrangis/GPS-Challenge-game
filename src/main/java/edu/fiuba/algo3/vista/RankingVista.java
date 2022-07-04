@@ -2,10 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.*;
 import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
@@ -53,7 +50,7 @@ public class RankingVista extends Group {
         ArrayList<Jugador> listaJugadores = ranking.obtenerJugadoresYPuntajes();
         int x = 40;
         for(Jugador j : listaJugadores) {
-            escribirFila(j.nombre(), j.movimientos().mostrar(),x);
+            escribirFila(j.nombre(), j.movimientos().cantidad(),x);
             x = x+20;
         }
     }

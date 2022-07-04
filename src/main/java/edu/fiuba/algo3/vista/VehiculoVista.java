@@ -20,10 +20,10 @@ public class VehiculoVista extends ImageView {
     public void actualizar(){
         Image diseño = new Image(vehiculo.estado());
         this.setImage(diseño);
-        this.setFitHeight(35);
-        this.setFitWidth(35);
-        this.setX(INICIAL_X + jugador.ubicacion().coordenadaX()*DISTANCIA_PUNTOS);
-        this.setY(INICIAL_Y + jugador.ubicacion().coordenadaY()*DISTANCIA_PUNTOS);
+        this.setFitHeight(45);
+        this.setFitWidth(45);
+        this.setX(INICIAL_X - 10 + jugador.ubicacion().coordenadaX()*DISTANCIA_PUNTOS);
+        this.setY(INICIAL_Y - 10 + jugador.ubicacion().coordenadaY()*DISTANCIA_PUNTOS);
     }
 
 }

@@ -1,7 +1,6 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.vista.MetaVista;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,7 +16,7 @@ public class ObstaculosTest {
         juego.jugar("carlos", vehiculo);
         juego.moverse(new Este());
 
-        assertEquals(4, movimientos.mostrar());
+        assertEquals(4, movimientos.cantidad());
     }
     @Test
     public void testUnaAutoAtraviesaCiudadYSeEncuentraPozo() {
@@ -29,7 +28,7 @@ public class ObstaculosTest {
         juego.jugar("carlos", vehiculo);
         juego.moverse(new Este());
 
-        assertEquals(4, movimientos.mostrar());
+        assertEquals(4, movimientos.cantidad());
     }
     @Test
     public void testUna4x4AtraviesaCiudadYSeEncuentraPozo() {
@@ -41,7 +40,7 @@ public class ObstaculosTest {
         juego.jugar("carlos", vehiculo);
         juego.moverse(new Este());
 
-        assertEquals(1, movimientos.mostrar());
+        assertEquals(1, movimientos.cantidad());
     }
     @Test
     public void testUnaMotoAtraviesaCiudadYSeEncuentraPiquete() {
@@ -53,7 +52,7 @@ public class ObstaculosTest {
         juego.jugar("carlos", vehiculo);
         juego.moverse(new Este());
 
-        assertEquals(3, movimientos.mostrar());
+        assertEquals(3, movimientos.cantidad());
     }
     @Test
     public void testUnaAutoAtraviesaCiudadYSeEncuentraPiquete() {
@@ -66,7 +65,7 @@ public class ObstaculosTest {
         PuntoEstable posicionInicial = juego.jugador().ubicacion();
         juego.moverse(new Este());
 
-        assertEquals(1, movimientos.mostrar());
+        assertEquals(1, movimientos.cantidad());
         assertEquals(posicionInicial, juego.jugador().ubicacion());
     }
 

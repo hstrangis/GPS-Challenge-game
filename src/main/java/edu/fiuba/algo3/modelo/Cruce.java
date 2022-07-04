@@ -23,10 +23,10 @@ public class Cruce extends PuntoEstable {
     public void llegadaJugador(){}
 
     public void agregarObstaculo(Obstaculo obstaculo, Sentido sentido) {
-        cuadras.get(sentido.clave()).agregarObstaculo(obstaculo);
+        cuadras.get(sentido.clave()).agregarObstaculo(obstaculo, sentido);
     }
     public void agregarSorpresa(Sorpresa sorpresa, Sentido sentido) {
-        cuadras.get(sentido.clave()).agregarSorpresa(sorpresa);
+        cuadras.get(sentido.clave()).agregarSorpresa(sorpresa, sentido);
     }
 
 }

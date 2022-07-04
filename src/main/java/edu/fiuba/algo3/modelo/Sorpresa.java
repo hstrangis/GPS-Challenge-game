@@ -9,9 +9,12 @@ public abstract class Sorpresa {
 
     public String nombre(){return "file:src\\main\\java\\edu\\fiuba\\algo3\\sorpresa.png";}
 
-    public void agregarCoordenadas(double x, double y, Sentido sentido){
+    public void agregarCoordenadas(double x, double y){
         coordenada = new Coordenada(x, y);
-        sentido.modificarCoordenadaElemento(coordenada);
+    }
+
+    public void actualizarCoordenada(Sentido sentido, double posicion){
+        sentido.modificarCoordenadaElemento(coordenada, posicion);
     }
 
     public double coordenadaX(){return coordenada.coordenadaX();}

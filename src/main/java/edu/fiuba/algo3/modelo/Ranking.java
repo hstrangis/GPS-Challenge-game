@@ -1,10 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Jugador;
-
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Iterator;
 
 public class Ranking {
 
@@ -18,7 +15,7 @@ public class Ranking {
     public void agregarJugador(Jugador jugador) {
         if(estaEnRanking(jugador)) { actualizarPuntaje(jugador); }
         else { ranking.add(jugador); }
-        ranking.sort(Comparator.comparingDouble(a -> a.movimientos().mostrar()));
+        ranking.sort(Comparator.comparingDouble(a -> a.movimientos().cantidad()));
     }
     private void actualizarPuntaje(Jugador jugador) {
         for(Jugador j : ranking) {

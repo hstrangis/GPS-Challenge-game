@@ -17,7 +17,7 @@ public class Oeste extends Sentido {
     public void modificarCoordenada(Coordenada coordenada){
         coordenada.mover(MOVER_PUNTO,SIN_MOVER);
     }
-    public void modificarCoordenadaElemento(Coordenada coordenada){
-        coordenada.mover(-MOVER_ELEMENTO,SIN_MOVER);
+    public void modificarCoordenadaElemento(Coordenada coordenada, double posicion){
+        coordenada.mover(-MOVER_ELEMENTO * posicion, SIN_MOVER);
     }
 }

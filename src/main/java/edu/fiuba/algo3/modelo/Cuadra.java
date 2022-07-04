@@ -5,6 +5,8 @@ import java.util.ListIterator;
 import static edu.fiuba.algo3.modelo.Sentido.Direccion;
 
 public class Cuadra {
+    static final double DESAPARECER = 100000000;
+    static final Sentido ARRIBA = new Norte();
     private Hashtable<Direccion, PuntoEstable> cruces;
     private List<Obstaculo> obstaculos;
     private List<Sorpresa> sorpresas;
@@ -57,14 +59,19 @@ public class Cuadra {
         while (iter.hasNext()){
             Sorpresa sorpresa = iter.next();
             vehiculo.interactuarSorpresa(sorpresa);
+            sorpresa.actualizarCoordenada(ARRIBA, DESAPARECER);
             iter.remove();
         }
     }
-    public void agregarObstaculo(Obstaculo obstaculo) {
+    public void agregarObstaculo(Obstaculo obstaculo, Sentido sentido) {
+        double cantidadElementos = obstaculos.size();
         obstaculos.add(obstaculo);
+        obstaculo.actualizarCoordenada(sentido, cantidadElementos + 1);
     }
-    public void agregarSorpresa(Sorpresa sorpresa) {
+    public void agregarSorpresa(Sorpresa sorpresa, Sentido sentido) {
+        double cantidadElementos = obstaculos.size() + sorpresas.size();
         sorpresas.add(sorpresa);
+        sorpresa.actualizarCoordenada(sentido, cantidadElementos + 1);
     }
 
 }

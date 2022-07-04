@@ -14,7 +14,7 @@ public class Norte extends Sentido {
     public void modificarCoordenada(Coordenada coordenada){
         coordenada.mover(SIN_MOVER,MOVER_PUNTO);
     }
-    public void modificarCoordenadaElemento(Coordenada coordenada){
-        coordenada.mover(SIN_MOVER,-MOVER_ELEMENTO);
+    public void modificarCoordenadaElemento(Coordenada coordenada, double posicion){
+        coordenada.mover(SIN_MOVER,-MOVER_ELEMENTO * posicion);
     }
 }

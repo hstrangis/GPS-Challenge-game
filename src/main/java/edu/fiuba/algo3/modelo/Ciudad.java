@@ -64,12 +64,12 @@ public class Ciudad {
     }
 
     public void agregarObstaculo(Obstaculo obstaculo, int fila, int columna, Sentido sentido){
+        obstaculo.agregarCoordenadas(columna, fila);
         matrizMapa[fila][columna].agregarObstaculo(obstaculo, sentido);
-        obstaculo.agregarCoordenadas(columna, fila, sentido);
     }
     public void agregarSorpresa(Sorpresa sorpresa, int fila, int columna, Sentido sentido){
+        sorpresa.agregarCoordenadas(columna, fila);
         matrizMapa[fila][columna].agregarSorpresa(sorpresa, sentido);
-        sorpresa.agregarCoordenadas(columna, fila, sentido);
     }
     public void prepararJugador(Jugador jugador){
         jugador.asignarPuntoPartida(matrizMapa[0][0]);

@@ -35,7 +35,7 @@ public class ComenzarJuego implements EventHandler<ActionEvent> {
     public void handle(ActionEvent e) {
         juego.jugar(nombre.getText(), vehiculo);
         stage.close();
-        Scene pantallaJuego = new Scene(principal, 840, 780);
+        Scene pantallaJuego = new Scene(principal, 940, 1000);
         principal.inicializar(pantallaJuego, vehiculo);
         stage.setScene(pantallaJuego);
         stage.show();

@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Sentido;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import static edu.fiuba.algo3.vista.MapaVista.DISTANCIA_PUNTOS;
+
 public class MetaVista extends ImageView {
 
     private Meta meta;
@@ -14,7 +16,7 @@ public class MetaVista extends ImageView {
         this.setImage(diseño);
         this.setFitHeight(75);
         this.setFitWidth(65);
-        this.setX(273 + meta.coordenadaX()*122);
-        this.setY(315 + meta.coordenadaY()*122);
+        this.setX(243 + meta.coordenadaX()*DISTANCIA_PUNTOS);
+        this.setY(370 + meta.coordenadaY()*DISTANCIA_PUNTOS);
     }
 }

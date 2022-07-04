@@ -1,6 +1,5 @@
 package edu.fiuba.algo3;
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.vista.MetaVista;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,7 +14,7 @@ public class SorpresasTest {
         juego.jugar("Seba", vehiculo);
         juego.moverse(new Este());
 
-        assertEquals(0.8,  movimientos.mostrar());
+        assertEquals(0.8,  movimientos.cantidad());
     }
     @Test
     public void testAutoAtraviesaCiudadYEncuentraSorpresaDesfavorable() {
@@ -26,7 +25,7 @@ public class SorpresasTest {
         juego.jugar("Seba", vehiculo);
         juego.moverse(new Este());
 
-        assertEquals(1.25, movimientos.mostrar());
+        assertEquals(1.25, movimientos.cantidad());
     }
     @Test
     public void testAutoAtraviesaCiudadYEncuentraSorpresaCambioDeVehiculo() {
@@ -37,7 +36,7 @@ public class SorpresasTest {
         juego.jugar("Seba", vehiculo);
         juego.moverse(new Este());
 
-        assertEquals(1, movimientos.mostrar());
+        assertEquals(1, movimientos.cantidad());
         //assertTrue(vehiculo.estado instanceof CuatroxCuatro);
     }
     @Test
@@ -49,7 +48,7 @@ public class SorpresasTest {
         juego.jugar("Seba", vehiculo);
         juego.moverse(new Este());
 
-        assertEquals(1, movimientos.mostrar());
+        assertEquals(1, movimientos.cantidad());
         assertTrue(vehiculo.estado() == "file:src\\main\\java\\edu\\fiuba\\algo3\\auto.png");
     }
     @Test
@@ -61,7 +60,7 @@ public class SorpresasTest {
         juego.jugar("Seba", vehiculo);
         juego.moverse(new Este());
 
-        assertEquals(1, movimientos.mostrar());
+        assertEquals(1, movimientos.cantidad());
         //assertTrue(vehiculo.estado instanceof Moto);
     }
 
@@ -75,7 +74,7 @@ public class SorpresasTest {
         juego.moverse(new Este());
         juego.moverse(new Oeste());
 
-        assertEquals(2, movimientos.mostrar());
+        assertEquals(2, movimientos.cantidad());
         //assertTrue(vehiculo.estado instanceof Moto);
     }
 }

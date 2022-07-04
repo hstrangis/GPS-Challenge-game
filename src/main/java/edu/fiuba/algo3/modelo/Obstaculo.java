@@ -6,9 +6,12 @@ public abstract class Obstaculo {
     Obstaculo(){};
     abstract public boolean interactuar(EstadoVehiculo vehiculo);
 
-    public void agregarCoordenadas(double x, double y, Sentido sentido){
+    public void agregarCoordenadas(double x, double y){
         coordenada = new Coordenada(x, y);
-        sentido.modificarCoordenadaElemento(coordenada);
+    }
+
+    public void actualizarCoordenada(Sentido sentido, double posicion){
+        sentido.modificarCoordenadaElemento(coordenada, posicion);
     }
 
     abstract public String nombre();

@@ -35,29 +35,30 @@ public class App extends Application {
         Favorable favorable = new Favorable();
         Piquete piquete = new Piquete();
         Pozo pozo = new Pozo();
-        juego.agregarSorpresa(cambioVehiculo, 0,0, new Sur());
-        juego.agregarObstaculo(piquete, 1,0, new Sur());
+        juego.agregarObstaculo(piquete, 0,0, new Sur());
         juego.agregarObstaculo(pozo, 0,0, new Este());
         juego.agregarObstaculo(new ControlPolicial(), 0,1, new Este());
-        juego.agregarSorpresa(favorable, 1,1, new Este());
         juego.agregarObstaculo(new Piquete(), 1,1, new Este());
         juego.agregarObstaculo(new Pozo(), 1,1, new Este());
+        juego.agregarSorpresa(cambioVehiculo, 0,0, new Sur());
+        juego.agregarSorpresa(favorable, 0,0, new Sur());
 
 
 
         //Inicializacion de la entrada
-        Principal principal = new Principal(juego, movimientos);
+        MapaVista mapa = new MapaVista(4,4);
+        Principal principal = new Principal(juego, movimientos, mapa);
         MetaVista metaVista = new MetaVista(meta);
         RankingVista rankingVista = new RankingVista(juego);
         SorpresaVista cambioVehiculoVista = new SorpresaVista(cambioVehiculo);
         SorpresaVista favorableVista = new SorpresaVista(favorable);
         ObstaculoVista piqueteVista = new ObstaculoVista(piquete);
         ObstaculoVista pozoVista = new ObstaculoVista(pozo);
-        principal.agregarVista(cambioVehiculoVista);
-        principal.agregarVista(favorableVista);
-        principal.agregarVista(metaVista);
-        principal.agregarVista(piqueteVista);
-        principal.agregarVista(pozoVista);
+        mapa.agregarSorpresa(cambioVehiculoVista);
+        mapa.agregarSorpresa(favorableVista);
+        mapa.agregarVista(metaVista);
+        mapa.agregarVista(piqueteVista);
+        mapa.agregarVista(pozoVista);
         ComenzarJuego accionComenzar = new ComenzarJuego(juego, vehiculo, principal, stage);
         FinalizarJuego accionTerminar = new FinalizarJuego(stage);
         VerRanking accionVerRanking = new VerRanking(stage, rankingVista);
@@ -65,8 +66,8 @@ public class App extends Application {
         Salida salida = new Salida(juego, accionTerminar, accionVerRanking, accionComenzar);
         Scene entrada = new Scene(inicio, 240, 100);
         Scene fin = new Scene(salida,240, 140);
-        //stage.setScene(entrada);
-        stage.setScene(fin);
+        stage.setScene(entrada);
+        //stage.setScene(fin);
 
         stage.setResizable(false);
 

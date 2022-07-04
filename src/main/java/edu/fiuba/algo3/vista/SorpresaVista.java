@@ -20,4 +20,9 @@ public class SorpresaVista extends ImageView {
         this.setX(INICIAL_X + sorpresa.coordenadaX()*DISTANCIA_PUNTOS);
         this.setY(INICIAL_Y + sorpresa.coordenadaY()*DISTANCIA_PUNTOS);
     }
+
+    public void actualizar(){
+        this.setX(INICIAL_X + sorpresa.coordenadaX()*DISTANCIA_PUNTOS);
+        this.setY(INICIAL_Y + sorpresa.coordenadaY()*DISTANCIA_PUNTOS);
+    }
 }

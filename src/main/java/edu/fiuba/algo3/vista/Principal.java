@@ -13,8 +13,11 @@ public class Principal extends Group {
     private MovimientosVista movimientosVista;
     private Juego juego;
 
-   public Principal(Juego juego, Movimientos movimientos){
-       this.getChildren().add(new MapaVista(4,4));
+    private MapaVista mapa;
+
+   public Principal(Juego juego, Movimientos movimientos, MapaVista mapa){
+       this.mapa = mapa;
+       this.getChildren().add(mapa);
        movimientosVista = new MovimientosVista(movimientos, 1, 1);
        this.getChildren().add(movimientosVista);
        this.juego = juego;
@@ -22,15 +25,11 @@ public class Principal extends Group {
 
    public void inicializar(Scene escena, Vehiculo vehiculo){
        VehiculoVista vehiculoVista = new VehiculoVista(vehiculo, juego.jugador());
-       this.getChildren().add(vehiculoVista);
-       ControlesMoverse controles = new ControlesMoverse(juego, movimientosVista, vehiculoVista);
+       mapa.agregarVehiculo(vehiculoVista);
+       ControlesMoverse controles = new ControlesMoverse(juego, movimientosVista, mapa);
        escena.setOnKeyPressed(controles);
        vehiculoVista.actualizar();
    }
 
-
-    public void agregarVista(ImageView vista){
-        this.getChildren().add(vista);
-    }
 
 }

@@ -30,7 +30,7 @@ public class Jugador {
     public String nombre() { return nick; }
 
     public boolean tieneMasOIgualMovimientosQue(Jugador jugador) {
-        return Double.compare(this.movimientos().mostrar(), jugador.movimientos().mostrar()) >= 0;
+        return Double.compare(this.movimientos().cantidad(), jugador.movimientos().cantidad()) >= 0;
     }
     public boolean mismoJugador(Jugador jugador) {
         return jugador.nick.equals(this.nick);

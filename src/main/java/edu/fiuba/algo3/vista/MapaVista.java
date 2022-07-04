@@ -1,22 +1,53 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.Ciudad;
+import edu.fiuba.algo3.modelo.Obstaculo;
+import edu.fiuba.algo3.modelo.Sorpresa;
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
-public class MapaVista extends Group {
-    static final int INICIAL_X = 293;
-    static final int INICIAL_Y = 329;
+import java.util.ArrayList;
+import java.util.List;
 
-    static final int DISTANCIA_PUNTOS = 122;
+public class MapaVista extends Group {
+    static final int INICIAL_X = 270;
+    static final int INICIAL_Y = 390;
+
+    static final int DISTANCIA_PUNTOS = 190;
+
+    private VehiculoVista vehiculo;
+
+    private List<SorpresaVista> sorpresas;
+
     MapaVista(int largo, int ancho){
+        sorpresas = new ArrayList<>();
         for (int fila = 0; fila < largo; fila++) {
             for (int columna = 0; columna < ancho; columna++) {
-                this.getChildren().add(new Rectangle(210 + columna*120, 250 + fila*120, 80,80));
+                this.getChildren().add(new Rectangle(130 + columna*190, 250 + fila*190, 120,120));
             }
         }
     }
 
+    public void agregarVehiculo(VehiculoVista vehiculo){
+        this.vehiculo = vehiculo;
+        this.getChildren().add(vehiculo);
+    }
+
+    public void agregarSorpresa(SorpresaVista sorpresa){
+        sorpresas.add(sorpresa);
+        this.getChildren().add(sorpresa);
+    }
+
+    public void agregarVista(ImageView vista){
+        this.getChildren().add(vista);
+    }
+
+    public void actualizar(){
+        vehiculo.actualizar();
+        for (SorpresaVista sorpresa : sorpresas){
+            sorpresa.actualizar();
+        }
+    }
 
 }

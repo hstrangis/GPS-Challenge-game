@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import javafx.scene.text.Text;
-
 public class Movimientos {
     private double movimientos;
 
@@ -17,5 +15,5 @@ public class Movimientos {
         this.movimientos *= porcentaje;
     }
 
-    public double mostrar(){return movimientos;}
+    public double cantidad(){return movimientos;}
 }

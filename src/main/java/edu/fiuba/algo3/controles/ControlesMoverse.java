@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.controles;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.vista.MapaVista;
 import edu.fiuba.algo3.vista.MovimientosVista;
 import edu.fiuba.algo3.vista.VehiculoVista;
 import javafx.event.EventHandler;
@@ -12,12 +13,12 @@ public class ControlesMoverse implements EventHandler<KeyEvent> {
     private Juego juego;
     private MovimientosVista movimientos;
 
-    private VehiculoVista vehiculo;
+    private MapaVista mapa;
 
-    public ControlesMoverse(Juego juego, MovimientosVista movimientos, VehiculoVista vehiculo) {
+    public ControlesMoverse(Juego juego, MovimientosVista movimientos, MapaVista mapa) {
         this.juego = juego;
         this.movimientos = movimientos;
-        this.vehiculo = vehiculo;
+        this.mapa = mapa;
     }
 
     public void handle(KeyEvent event) {
@@ -36,7 +37,7 @@ public class ControlesMoverse implements EventHandler<KeyEvent> {
                 juego.moverse(new Este());
             }
             movimientos.actualizar();
-            vehiculo.actualizar();
+            mapa.actualizar();
             event.consume();
         } catch (Exception e) {
             //Cant move exception

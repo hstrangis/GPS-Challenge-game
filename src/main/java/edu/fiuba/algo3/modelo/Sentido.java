@@ -5,7 +5,7 @@ import edu.fiuba.algo3.vista.SorpresaVista;
 import edu.fiuba.algo3.vista.VehiculoVista;
 
 public abstract class Sentido {
-    static final double MOVER_ELEMENTO = 0.50;
+    static final double MOVER_ELEMENTO = 0.25;
     static final int MOVER_PUNTO = 1;
 
     static final int SIN_MOVER = 0;
@@ -17,6 +17,6 @@ public abstract class Sentido {
         return (clave().equals(sentido.clave()));
     }
     abstract public void modificarCoordenada(Coordenada coordenada);
-    abstract public void modificarCoordenadaElemento(Coordenada coordenada);
+    abstract public void modificarCoordenadaElemento(Coordenada coordenada, double posicion);
 
 }
