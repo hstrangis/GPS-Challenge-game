@@ -13,7 +13,7 @@ public class ObstaculosTest {
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4, new Meta());
         Vehiculo vehiculo = new Vehiculo(new Moto(), movimientos);
-        juego.agregarElemento(new Pozo(), 0,0, new Este());
+        juego.agregarObstaculo(new Pozo(), 0,0, new Este());
         juego.jugar("carlos", vehiculo);
         juego.moverse(new Este());
 
@@ -25,7 +25,7 @@ public class ObstaculosTest {
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4, new Meta());
         Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
-        juego.agregarElemento(new Pozo(), 0,0, new Este());
+        juego.agregarObstaculo(new Pozo(), 0,0, new Este());
         juego.jugar("carlos", vehiculo);
         juego.moverse(new Este());
 
@@ -37,7 +37,7 @@ public class ObstaculosTest {
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4, new Meta());
         Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), movimientos);
-        juego.agregarElemento(new Pozo(), 0,0, new Este());
+        juego.agregarObstaculo(new Pozo(), 0,0, new Este());
         juego.jugar("carlos", vehiculo);
         juego.moverse(new Este());
 
@@ -49,7 +49,7 @@ public class ObstaculosTest {
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4, new Meta());
         Vehiculo vehiculo = new Vehiculo(new Moto(), movimientos);
-        juego.agregarElemento(new Piquete(), 0,0, new Este());
+        juego.agregarObstaculo(new Piquete(), 0,0, new Este());
         juego.jugar("carlos", vehiculo);
         juego.moverse(new Este());
 
@@ -61,7 +61,7 @@ public class ObstaculosTest {
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4, new Meta());
         Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
-        juego.agregarElemento(new Piquete(), 0,0, new Este());
+        juego.agregarObstaculo(new Piquete(), 0,0, new Este());
         juego.jugar("carlos", vehiculo);
         PuntoEstable posicionInicial = juego.jugador().ubicacion();
         juego.moverse(new Este());

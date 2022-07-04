@@ -22,10 +22,6 @@ public class Vehiculo {
         movimientos.sumar(1);
     }
 
-    public boolean interactuar(Elemento elemento){
-        boolean permisoParaPasar = elemento.interactuar(estado);
-        return permisoParaPasar;
-    }
     public void cambiarEstado(EstadoVehiculo estadoNuevo){
         estado = estadoNuevo;
         estado.configurar(this);
@@ -33,4 +29,10 @@ public class Vehiculo {
 
     public String estado(){return estado.diseño();}
 
+    public boolean interactuarObstaculo(Obstaculo obstaculo) {
+        return obstaculo.interactuar(estado);
+    }
+    public void interactuarSorpresa(Sorpresa sorpresa) {
+        sorpresa.interactuar(estado);
+    }
 }

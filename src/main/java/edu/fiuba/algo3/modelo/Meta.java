@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 
 public class Meta extends PuntoEstable {
-    private boolean llegadaJugador = false;
+    private Juego juego;
 
     public Meta() {}
 
@@ -19,13 +19,11 @@ public class Meta extends PuntoEstable {
     public PuntoEstable siguientePunto(Sentido sentido, Vehiculo vehiculo) {
         return this;
     }
-
-    public boolean consultarVictoria(){
-        return llegadaJugador;
+    public void agregarJuego(Juego juego) {
+        this.juego = juego;
     }
-
     public void llegadaJugador(){
-        llegadaJugador = true;
+        juego.terminar();
     }
 }
 

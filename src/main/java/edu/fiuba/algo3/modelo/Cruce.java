@@ -20,9 +20,14 @@ public class Cruce extends PuntoEstable {
     public void agregarCuadra(Cuadra cuadra, Sentido sentido) {
         cuadras.put(sentido.clave(), cuadra);
     }
-    public void agregarElemento(Elemento elemento, Sentido sentido) {
-        cuadras.get(sentido.clave()).agregarElemento(elemento);
-    }
     public void llegadaJugador(){}
+
+    public void agregarObstaculo(Obstaculo obstaculo, Sentido sentido) {
+        cuadras.get(sentido.clave()).agregarObstaculo(obstaculo);
+    }
+    public void agregarSorpresa(Sorpresa sorpresa, Sentido sentido) {
+        cuadras.get(sentido.clave()).agregarSorpresa(sorpresa);
+    }
+
 }
 

@@ -5,17 +5,14 @@ public abstract class EstadoVehiculo {
     public void configurar(Vehiculo vehiculo){
         this.vehiculo = vehiculo;
     }
-    protected boolean interactuar(Favorable favorable){
+    protected void interactuar(Favorable favorable){
         favorable.actuar(vehiculo.movimientos);
-        return true;
     }
-    protected boolean interactuar(Desfavorable desfavorable){
+    protected void interactuar(Desfavorable desfavorable){
         desfavorable.actuar(vehiculo.movimientos);
-        return true;
     }
-    protected boolean interactuar(CambioVehiculo cambioVehiculo){
+    protected void interactuar(CambioVehiculo cambioVehiculo){
         vehiculo.cambiarEstado(crearSiguiente());
-        return true;
     }
     protected abstract boolean interactuar(Pozo pozo);
     protected abstract boolean interactuar(ControlPolicial control);

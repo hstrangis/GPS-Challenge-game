@@ -1,15 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
 
-public abstract class Sorpresa implements Elemento {
+public abstract class Sorpresa {
 
    protected Coordenada coordenada;
 
-    public boolean sosEliminable(){
-        return true;
-    }
-
-    abstract public boolean interactuar(EstadoVehiculo vehiculo);
+    abstract public void interactuar(EstadoVehiculo vehiculo);
 
     public String nombre(){return "file:src\\main\\java\\edu\\fiuba\\algo3\\sorpresa.png";}
 

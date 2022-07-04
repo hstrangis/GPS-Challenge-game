@@ -14,7 +14,7 @@ public class Principal extends Group {
     private Juego juego;
 
    public Principal(Juego juego, Movimientos movimientos){
-       this.getChildren().add(new MapaVista(4,4, 1,1));
+       this.getChildren().add(new MapaVista(4,4));
        movimientosVista = new MovimientosVista(movimientos, 1, 1);
        this.getChildren().add(movimientosVista);
        this.juego = juego;

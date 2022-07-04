@@ -46,14 +46,18 @@ public class Ranking {
     public Jugador primerPuesto() {
         return ranking.get(0);
     }
-    public void mostrar() {
-        int contador = 1;
-        Iterator<Jugador> iter = ranking.iterator();
-        while(iter.hasNext() & contador <= maxRanking) {
-            Jugador jugador = iter.next();
-            System.out.println(contador + " - " + jugador.nombre() + " con " + jugador.movimientos().mostrar() + " movimientos.");
-            contador++;
-        }
+
+    public ArrayList<Jugador> obtenerJugadoresYPuntajes() {
+        return ranking;
     }
+//    public void mostrar() {
+//        int contador = 1;
+//        Iterator<Jugador> iter = ranking.iterator();
+//        while(iter.hasNext() & contador <= maxRanking) {
+//            Jugador jugador = iter.next();
+//            System.out.println(contador + " - " + jugador.nombre() + " con " + jugador.movimientos().mostrar() + " movimientos.");
+//            contador++;
+//        }
+//   }
 }
 

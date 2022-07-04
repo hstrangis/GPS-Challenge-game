@@ -6,48 +6,65 @@ import static edu.fiuba.algo3.modelo.Sentido.Direccion;
 
 public class Cuadra {
     private Hashtable<Direccion, PuntoEstable> cruces;
-    private List<Elemento> elementos;
+    private List<Obstaculo> obstaculos;
+    private List<Sorpresa> sorpresas;
 
     Cuadra(PuntoEstable izquierdo, PuntoEstable derecho){
         cruces = new Hashtable<>();
         cruces.put(Direccion.izquierda, izquierdo);
         cruces.put(Direccion.derecha, derecho);
-        elementos = new ArrayList<>();
-
+        obstaculos = new ArrayList<>();
+        sorpresas = new ArrayList<>();
     }
 
     public PuntoEstable siguientePunto(Sentido sentido, Vehiculo vehiculo) {
         PuntoEstable siguientePosicion;
-        if (sentido.cuadra() == Direccion.izquierda)
-         Collections.reverse(elementos);
-        if (interactuar(vehiculo)) {
+        boolean permiso;
+
+        if (sentido.cuadra() == Direccion.izquierda) {
+            interactuarSorpresa(vehiculo);
+            permiso = interactuarObstaculo(vehiculo);
+        }
+        else {
+            permiso = interactuarObstaculo(vehiculo);
+            if(permiso) {
+                interactuarSorpresa(vehiculo);
+            }
+        }
+        if (permiso) {
             siguientePosicion = cruces.get(sentido.cuadra());
         }
         else
             siguientePosicion = cruces.get(sentido.volver());
-        if (sentido.cuadra() == Direccion.izquierda)
-            Collections.reverse(elementos);
         return siguientePosicion;
     }
 
-    private boolean interactuar(Vehiculo vehiculo) {
+    private boolean interactuarObstaculo(Vehiculo vehiculo) {
         boolean permisoParaPasar = true;
-        ListIterator<Elemento> iter = elementos.listIterator();
+        ListIterator<Obstaculo> iter = obstaculos.listIterator();
         while (iter.hasNext()){
-            Elemento elemento = iter.next();
-            if (!vehiculo.interactuar(elemento)) {
+            Obstaculo obstaculo = iter.next();
+            if (!vehiculo.interactuarObstaculo(obstaculo)) {
                 permisoParaPasar = false;
                 break;
-            }
-            if (elemento.sosEliminable()){
-                iter.remove();
             }
         }
         return permisoParaPasar;
     }
-    public void agregarElemento(Elemento elemento) {
-        elementos.add(elemento);
-    }
 
+    private void interactuarSorpresa(Vehiculo vehiculo) {
+        ListIterator<Sorpresa> iter = sorpresas.listIterator();
+        while (iter.hasNext()){
+            Sorpresa sorpresa = iter.next();
+            vehiculo.interactuarSorpresa(sorpresa);
+            iter.remove();
+        }
+    }
+    public void agregarObstaculo(Obstaculo obstaculo) {
+        obstaculos.add(obstaculo);
+    }
+    public void agregarSorpresa(Sorpresa sorpresa) {
+        sorpresas.add(sorpresa);
+    }
 
 }

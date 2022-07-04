@@ -63,18 +63,16 @@ public class Ciudad {
         cruceLlegada.agregarCuadra(cuadra, sentidoInverso);
     }
 
-    public void agregarElemento(Elemento elemento, int fila, int columna, Sentido sentido){
-        matrizMapa[fila][columna].agregarElemento(elemento, sentido);
-        elemento.agregarCoordenadas(columna, fila, sentido);
+    public void agregarObstaculo(Obstaculo obstaculo, int fila, int columna, Sentido sentido){
+        matrizMapa[fila][columna].agregarObstaculo(obstaculo, sentido);
+        obstaculo.agregarCoordenadas(columna, fila, sentido);
     }
-    private PuntoEstable puntoPartidaAleatorio() {
-        int filaAleartoria;
-        filaAleartoria = ThreadLocalRandom.current().nextInt(1, largoMapa);
-        return matrizMapa[filaAleartoria][0];
+    public void agregarSorpresa(Sorpresa sorpresa, int fila, int columna, Sentido sentido){
+        matrizMapa[fila][columna].agregarSorpresa(sorpresa, sentido);
+        sorpresa.agregarCoordenadas(columna, fila, sentido);
     }
     public void prepararJugador(Jugador jugador){
         jugador.asignarPuntoPartida(matrizMapa[0][0]);
-        //jugador.asignarPuntoPartida(puntoPartidaAleatorio());
     }
 
 }
