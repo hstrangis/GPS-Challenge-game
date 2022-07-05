@@ -21,7 +21,6 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
-    //public inicializarVistas
     @Override
     public void start(Stage stage) {
         stage.setTitle("Un paseo en Buenos Aires");
@@ -59,21 +58,17 @@ public class App extends Application {
         mapa.agregarVista(metaVista);
         mapa.agregarVista(piqueteVista);
         mapa.agregarVista(pozoVista);
-        ComenzarJuego accionComenzar = new ComenzarJuego(juego, vehiculo, principal, stage);
         FinalizarJuego accionTerminar = new FinalizarJuego(stage);
+        ComenzarJuego accionComenzar = new ComenzarJuego(juego, vehiculo, principal, stage);
+
         VerRanking accionVerRanking = new VerRanking(stage, rankingVista);
         Entrada inicio = new Entrada(juego, vehiculo, accionComenzar);
         Salida salida = new Salida(juego, accionTerminar, accionVerRanking, accionComenzar);
         Scene entrada = new Scene(inicio, 240, 100);
-        Scene fin = new Scene(salida,240, 140);
+        mapa.agregarSalida(salida);
         stage.setScene(entrada);
-        //stage.setScene(fin);
-
         stage.setResizable(false);
-
         stage.show();
-        //stage.setOnCloseRequest(e->accionTerminar);
-
     }
 
     public static void main(String[] args) {

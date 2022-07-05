@@ -39,6 +39,9 @@ public class Juego {
         juegoTerminado = true;
         ranking.agregarJugador(jugador);
     }
+    public boolean terminado(){
+        return juegoTerminado;
+    }
     public Ranking obtenerRanking() {
         return ranking;
     }

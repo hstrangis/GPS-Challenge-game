@@ -2,11 +2,9 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controles.*;
 import edu.fiuba.algo3.modelo.Juego;
-import edu.fiuba.algo3.modelo.Vehiculo;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.Group;
-import javafx.scene.control.TextField;
 
 
 public class Salida extends Group {
@@ -34,7 +32,7 @@ public class Salida extends Group {
         this.getChildren().add(salirButton);
 
         rankingButton.setOnAction(accionVerRanking);
-        jugarOtraVezButton.setOnAction(accionComenzar);
+        //jugarOtraVezButton.setOnAction(accionComenzar);
         salirButton.setOnAction(accionSalir);
     }
 }

@@ -39,7 +39,11 @@ public class ControlesMoverse implements EventHandler<KeyEvent> {
             movimientos.actualizar();
             mapa.actualizar();
             event.consume();
+            if(juego.terminado()){
+                mapa.agregarBotonContinuar();
+            }
         } catch (Exception e) {
+
             //Cant move exception
         }
 

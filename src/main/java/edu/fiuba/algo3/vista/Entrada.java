@@ -1,17 +1,12 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controles.ComenzarJuego;
-import edu.fiuba.algo3.controles.SelectorAutoInicial;
-import edu.fiuba.algo3.controles.SelectorCuatroxCuatroInicial;
-import edu.fiuba.algo3.controles.SelectorMotoInicial;
+import edu.fiuba.algo3.controles.*;
 import edu.fiuba.algo3.modelo.Juego;
 import edu.fiuba.algo3.modelo.Vehiculo;
 import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class Entrada extends Group {
 
