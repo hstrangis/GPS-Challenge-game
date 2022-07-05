@@ -14,7 +14,7 @@ public class ObstaculoVista extends ImageView {
 
     ObstaculoVista(Obstaculo obstaculo){
         this.obstaculo = obstaculo;
-        Image diseño = new Image(obstaculo.nombre());
+        Image diseño = new Image("file:src\\main\\java\\resources\\" + obstaculo.nombre() + ".png");
         this.setImage(diseño);
         this.setFitHeight(35);
         this.setFitWidth(35);

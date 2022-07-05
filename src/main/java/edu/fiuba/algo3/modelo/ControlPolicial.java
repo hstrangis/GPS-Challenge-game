@@ -7,7 +7,7 @@ public class ControlPolicial extends Obstaculo {
 
     public ControlPolicial(){};
 
-    public String nombre(){return "file:src\\main\\java\\edu\\fiuba\\algo3\\controlPolicial.png";}
+    public String nombre(){return "controlPolicial";}
     public boolean probabilidadDetencion(double probabilidad) {
         Random numeroAleatorio = new Random();
         return (numeroAleatorio.nextDouble() < probabilidad);

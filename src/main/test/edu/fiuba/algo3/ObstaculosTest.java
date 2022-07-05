@@ -11,10 +11,9 @@ public class ObstaculosTest {
         //Una moto se desplaza desde el origen hacia el Este, encuentra un pozo y suma 3 movimientos
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4);
-        juego.iniciarMapa(new Meta());
         Vehiculo vehiculo = new Vehiculo(new Moto(), movimientos);
+        juego.jugar("carlos", vehiculo, new Meta());
         juego.agregarObstaculo(new Pozo(), 0,0, new Este());
-        juego.jugar("carlos", vehiculo);
         juego.moverse(new Este());
 
         assertEquals(4, movimientos.cantidad());
@@ -24,10 +23,9 @@ public class ObstaculosTest {
         //Un auto se desplaza desde el origen hacia el Este, encuentra un pozo y suma 3 movimientos
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4);
-        juego.iniciarMapa(new Meta());
         Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
+        juego.jugar("carlos", vehiculo, new Meta());
         juego.agregarObstaculo(new Pozo(), 0,0, new Este());
-        juego.jugar("carlos", vehiculo);
         juego.moverse(new Este());
 
         assertEquals(4, movimientos.cantidad());
@@ -37,10 +35,9 @@ public class ObstaculosTest {
         //Una 4x4 se desplaza desde el origen hacia el Este, encuentra un pozo y no suma movimientos (primer pozo)
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4);
-        juego.iniciarMapa(new Meta());
         Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), movimientos);
+        juego.jugar("carlos", vehiculo, new Meta());
         juego.agregarObstaculo(new Pozo(), 0,0, new Este());
-        juego.jugar("carlos", vehiculo);
         juego.moverse(new Este());
 
         assertEquals(1, movimientos.cantidad());
@@ -50,10 +47,9 @@ public class ObstaculosTest {
         //Una moto se desplaza desde el origen hacia el Este, encuentra un piquete y suma 2 movimientos
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4);
-        juego.iniciarMapa(new Meta());
         Vehiculo vehiculo = new Vehiculo(new Moto(), movimientos);
+        juego.jugar("carlos", vehiculo, new Meta());
         juego.agregarObstaculo(new Piquete(), 0,0, new Este());
-        juego.jugar("carlos", vehiculo);
         juego.moverse(new Este());
 
         assertEquals(3, movimientos.cantidad());
@@ -63,10 +59,9 @@ public class ObstaculosTest {
         //Un auto se desplaza desde el origen hacia el Este, encuentra un piquete y vuelve al origen
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4);
-        juego.iniciarMapa(new Meta());
         Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
+        juego.jugar("carlos", vehiculo, new Meta());
         juego.agregarObstaculo(new Piquete(), 0,0, new Este());
-        juego.jugar("carlos", vehiculo);
         PuntoEstable posicionInicial = juego.jugador().ubicacion();
         juego.moverse(new Este());
 

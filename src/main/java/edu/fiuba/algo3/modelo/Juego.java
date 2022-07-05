@@ -18,14 +18,10 @@ public class Juego {
         ranking = new Ranking();
     }
 
-    public void iniciarMapa(Meta meta){
+    public void jugar(String nick, Vehiculo vehiculo, Meta meta){
         juegoTerminado = false;
         ciudad = new Ciudad(largo, ancho, meta);
         meta.agregarJuego(this);
-    }
-
-
-    public void jugar(String nick, Vehiculo vehiculo){
         jugador = new Jugador(nick, vehiculo);
         ciudad.prepararJugador(jugador);
     }

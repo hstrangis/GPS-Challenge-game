@@ -18,7 +18,7 @@ public class VehiculoVista extends ImageView {
     }
 
     public void actualizar(){
-        Image diseño = new Image(vehiculo.estado());
+        Image diseño = new Image("file:src\\main\\java\\resources\\"+ vehiculo.estado() + ".png");
         this.setImage(diseño);
         this.setFitHeight(45);
         this.setFitWidth(45);

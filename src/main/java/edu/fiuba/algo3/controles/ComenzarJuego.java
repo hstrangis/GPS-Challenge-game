@@ -41,12 +41,12 @@ public class ComenzarJuego implements EventHandler<ActionEvent> {
 
     public void handle(ActionEvent e) {
         Meta meta = new Meta();
-        juego.iniciarMapa(meta);
         MapaVista mapa = new MapaVista(ANCHO_MAPA, LARGO_MAPA);
+        juego.jugar(nombre.getText(), vehiculo, meta);
         Principal principal = new Principal(juego, movimientos, mapa, stage);
         principal.agregarMeta(meta);
         new SorteadorElementos(juego, mapa, ANCHO_MAPA, LARGO_MAPA);
-        juego.jugar(nombre.getText(), vehiculo);
+
         stage.close();
         Scene pantallaJuego = new Scene(principal, 940, 1000);
         principal.inicializar(pantallaJuego, vehiculo);

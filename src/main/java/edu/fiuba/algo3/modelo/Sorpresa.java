@@ -7,7 +7,7 @@ public abstract class Sorpresa {
 
     abstract public void interactuar(EstadoVehiculo vehiculo);
 
-    public String nombre(){return "file:src\\main\\java\\edu\\fiuba\\algo3\\sorpresa.png";}
+    public String nombre(){return "sorpresa";}
 
     public void agregarCoordenadas(double x, double y){
         coordenada = new Coordenada(x, y);

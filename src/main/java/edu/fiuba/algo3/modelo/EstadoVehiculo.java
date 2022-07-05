@@ -19,5 +19,5 @@ public abstract class EstadoVehiculo {
     protected abstract boolean interactuar(Piquete piquete);
     protected abstract EstadoVehiculo crearSiguiente();
 
-    protected abstract String diseño();
+    protected abstract String nombre();
 }

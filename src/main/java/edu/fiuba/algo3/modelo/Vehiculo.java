@@ -27,7 +27,7 @@ public class Vehiculo {
         estado.configurar(this);
     }
 
-    public String estado(){return estado.diseño();}
+    public String estado(){return estado.nombre();}
 
     public boolean interactuarObstaculo(Obstaculo obstaculo) {
         return obstaculo.interactuar(estado);

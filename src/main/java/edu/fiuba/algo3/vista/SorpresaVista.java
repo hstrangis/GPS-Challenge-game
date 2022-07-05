@@ -13,7 +13,7 @@ public class SorpresaVista extends ImageView {
 
     SorpresaVista(Sorpresa sorpresa){
        this.sorpresa = sorpresa;
-        Image diseño = new Image(sorpresa.nombre());
+        Image diseño = new Image("file:src\\main\\java\\resources\\" + sorpresa.nombre() + ".png");
         this.setImage(diseño);
         this.setFitHeight(35);
         this.setFitWidth(35);

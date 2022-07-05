@@ -8,21 +8,16 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Ciudad {
 
     private Cruce[][] matrizMapa;
-    private int largoMapa = 0;
-    private int anchoMapa = 0;
 
     Ciudad(int largo, int ancho, Meta meta) {
         crearMapa(largo, ancho, meta);
     }
-
 
     private void crearMapa(int largo, int ancho, Meta meta) {
         Cruce actual;
         SinSalida borde;
         largo = largo - 1;
         ancho = ancho - 1;
-        largoMapa = largo;
-        anchoMapa = ancho;
         int filaMeta = (int) (Math.random() * (largo-1)) + 1;
         matrizMapa = new Cruce[largo][ancho];
         for (int fila = 0; fila < largo; fila++) {

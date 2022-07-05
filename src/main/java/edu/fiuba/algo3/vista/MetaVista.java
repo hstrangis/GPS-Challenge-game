@@ -12,7 +12,7 @@ public class MetaVista extends ImageView {
     private Meta meta;
     MetaVista(Meta meta){
         this.meta = meta;
-        Image diseño = new Image("file:src\\main\\java\\edu\\fiuba\\algo3\\meta.png");
+        Image diseño = new Image("file:src\\main\\java\\resources\\meta.png");
         this.setImage(diseño);
         this.setFitHeight(75);
         this.setFitWidth(65);

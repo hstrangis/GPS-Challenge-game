@@ -13,7 +13,7 @@ public class RankingTest {
         moto.moverse();
         Ranking ranking = new Ranking();
         ranking.agregarJugador(jugador1);
-        assertEquals("Beto", ranking.primerPuesto());
+        assertEquals(jugador1, ranking.primerPuesto());
     }
     @Test
     public void testRankingDeTresJugadoresConDistintosMovimientos() {
@@ -47,6 +47,6 @@ public class RankingTest {
         Jugador jugador2 = new Jugador("Beto", auto);
         ranking.agregarJugador(jugador1);
         ranking.agregarJugador(jugador2);
-        //assertEquals(jugador2, ranking.primerPuesto());
+        assertEquals(jugador2, ranking.primerPuesto());
     }
 }
