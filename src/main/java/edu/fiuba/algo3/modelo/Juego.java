@@ -6,14 +6,22 @@ public class Juego {
     private Ciudad ciudad;
     private Jugador jugador;
     public Ranking ranking;
-    private Meta meta;
     private boolean juegoTerminado;
 
-    public Juego(int largo, int ancho, Meta meta) {
-        ciudad = new Ciudad(largo, ancho, meta);
-        this.meta = meta;
-        meta.agregarJuego(this);
+    private int largo;
+
+    private int ancho;
+
+    public Juego(int largo, int ancho) {
+        this.largo = largo;
+        this.ancho = ancho;
         ranking = new Ranking();
+    }
+
+    public void iniciarMapa(Meta meta){
+        juegoTerminado = false;
+        ciudad = new Ciudad(largo, ancho, meta);
+        meta.agregarJuego(this);
     }
 
 
@@ -42,6 +50,8 @@ public class Juego {
     public boolean terminado(){
         return juegoTerminado;
     }
+
+
     public Ranking obtenerRanking() {
         return ranking;
     }

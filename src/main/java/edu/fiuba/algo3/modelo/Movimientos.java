@@ -15,5 +15,5 @@ public class Movimientos {
         this.movimientos *= porcentaje;
     }
 
-    public double cantidad(){return movimientos;}
+    public double cantidad(){return Math.round(movimientos*100.0)/100.0;}
 }

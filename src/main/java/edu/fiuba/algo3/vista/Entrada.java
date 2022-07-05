@@ -1,16 +1,19 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controles.*;
-import edu.fiuba.algo3.modelo.Juego;
-import edu.fiuba.algo3.modelo.Vehiculo;
+import edu.fiuba.algo3.modelo.*;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class Entrada extends Group {
 
-    Entrada(Juego juego, Vehiculo vehiculo, ComenzarJuego accionComenzar){
+    public Entrada(Stage stage, Juego juego){
+
+        Movimientos movimientos = new Movimientos();
+        Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
 
         Label nickname = new Label("Nickname:");
         nickname.setMinWidth(100);
@@ -42,6 +45,7 @@ public class Entrada extends Group {
         jugarButton.setTranslateX(97);
         this.getChildren().add(jugarButton);
 
+        ComenzarJuego accionComenzar = new ComenzarJuego(vehiculo, movimientos, stage, juego);
         autoButton.setOnAction(new SelectorAutoInicial(vehiculo));
         motoButton.setOnAction(new SelectorMotoInicial(vehiculo));
         cuatroxCuatroButton.setOnAction(new SelectorCuatroxCuatroInicial(vehiculo));

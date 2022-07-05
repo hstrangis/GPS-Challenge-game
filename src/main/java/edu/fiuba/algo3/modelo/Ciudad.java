@@ -23,7 +23,7 @@ public class Ciudad {
         ancho = ancho - 1;
         largoMapa = largo;
         anchoMapa = ancho;
-        int filaMeta = (int) (Math.random() * (largo));
+        int filaMeta = (int) (Math.random() * (largo-1)) + 1;
         matrizMapa = new Cruce[largo][ancho];
         for (int fila = 0; fila < largo; fila++) {
             for (int columna = 0; columna < ancho; columna++) {
@@ -74,6 +74,7 @@ public class Ciudad {
     public void prepararJugador(Jugador jugador){
         jugador.asignarPuntoPartida(matrizMapa[0][0]);
     }
+
 
 }
 

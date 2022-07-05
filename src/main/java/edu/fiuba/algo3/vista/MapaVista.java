@@ -25,7 +25,7 @@ public class MapaVista extends Group {
 
     private List<SorpresaVista> sorpresas;
 
-    MapaVista(int largo, int ancho){
+    public MapaVista(int largo, int ancho){
         sorpresas = new ArrayList<>();
         for (int fila = 0; fila < largo; fila++) {
             for (int columna = 0; columna < ancho; columna++) {
@@ -57,21 +57,5 @@ public class MapaVista extends Group {
         for (SorpresaVista sorpresa : sorpresas){
             sorpresa.actualizar();
         }
-    }
-    public void agregarBotonContinuar() {
-        Button continuarButton = new Button("Continuar");
-        continuarButton.setTranslateY(150);
-        continuarButton.setTranslateX(97);
-        this.getChildren().add(continuarButton);
-        continuarButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Stage stage = new Stage();
-                Scene fin = new Scene(salida,240, 140);
-                stage.initModality(Modality.WINDOW_MODAL);
-                stage.setScene(fin);
-                stage.show();
-            }
-        });
     }
 }

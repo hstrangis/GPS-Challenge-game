@@ -22,17 +22,7 @@ public class Cuadra {
     public PuntoEstable siguientePunto(Sentido sentido, Vehiculo vehiculo) {
         PuntoEstable siguientePosicion;
         boolean permiso;
-
-        if (sentido.cuadra() == Direccion.izquierda) {
-            interactuarSorpresa(vehiculo);
-            permiso = interactuarObstaculo(vehiculo);
-        }
-        else {
-            permiso = interactuarObstaculo(vehiculo);
-            if(permiso) {
-                interactuarSorpresa(vehiculo);
-            }
-        }
+        permiso = interactuar(vehiculo, sentido);
         if (permiso) {
             siguientePosicion = cruces.get(sentido.cuadra());
         }
@@ -65,13 +55,41 @@ public class Cuadra {
     }
     public void agregarObstaculo(Obstaculo obstaculo, Sentido sentido) {
         double cantidadElementos = obstaculos.size();
-        obstaculos.add(obstaculo);
-        obstaculo.actualizarCoordenada(sentido, cantidadElementos + 1);
+        if (cantidadElementos<3) {
+            obstaculos.add(obstaculo);
+            obstaculo.actualizarCoordenada(sentido, cantidadElementos + 1);
+        }
+        else{
+            obstaculo.actualizarCoordenada(ARRIBA, DESAPARECER);
+        }
     }
     public void agregarSorpresa(Sorpresa sorpresa, Sentido sentido) {
         double cantidadElementos = obstaculos.size() + sorpresas.size();
-        sorpresas.add(sorpresa);
-        sorpresa.actualizarCoordenada(sentido, cantidadElementos + 1);
+        if (cantidadElementos<3) {
+            sorpresas.add(sorpresa);
+            sorpresa.actualizarCoordenada(sentido, cantidadElementos + 1);
+        }
+        else{
+            sorpresa.actualizarCoordenada(ARRIBA, DESAPARECER);
+        }
+    }
+
+    public boolean interactuar(Vehiculo vehiculo, Sentido sentido){
+        boolean permiso;
+        if (sentido.cuadra() == Direccion.izquierda) {
+            Collections.reverse(sorpresas);
+            Collections.reverse(obstaculos);
+            interactuarSorpresa(vehiculo);
+            permiso = interactuarObstaculo(vehiculo);
+            Collections.reverse(obstaculos);
+        }
+        else {
+            permiso = interactuarObstaculo(vehiculo);
+            if(permiso) {
+                interactuarSorpresa(vehiculo);
+            }
+        }
+        return permiso;
     }
 
 }

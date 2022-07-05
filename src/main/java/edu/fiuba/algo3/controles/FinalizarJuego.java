@@ -7,10 +7,8 @@ import javafx.stage.Stage;
 public class FinalizarJuego implements EventHandler<ActionEvent> {
     private Stage stage;
 
-    public FinalizarJuego(Stage stage){
-        this.stage = stage;
-    }
+    public FinalizarJuego(){}
     public void handle(ActionEvent e) {
-        stage.close();
+        System.exit(0);
     }
 }

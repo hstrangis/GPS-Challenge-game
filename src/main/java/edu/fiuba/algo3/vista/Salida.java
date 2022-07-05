@@ -5,12 +5,11 @@ import edu.fiuba.algo3.modelo.Juego;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.Group;
+import javafx.stage.Stage;
 
 
 public class Salida extends Group {
-
-    Salida(Juego juego, FinalizarJuego accionSalir, VerRanking accionVerRanking, ComenzarJuego accionComenzar){
-
+    Salida(Juego juego, Stage stage, Stage stageSalida){
         Label mensaje = new Label("Felicidades, llegaste a la meta!!!");
         mensaje.setMinWidth(100);
         mensaje.setTranslateX(10);
@@ -31,8 +30,8 @@ public class Salida extends Group {
         salirButton.setTranslateX(40);
         this.getChildren().add(salirButton);
 
-        rankingButton.setOnAction(accionVerRanking);
-        //jugarOtraVezButton.setOnAction(accionComenzar);
-        salirButton.setOnAction(accionSalir);
+        rankingButton.setOnAction(new VerRanking(stage, new RankingVista(juego)));
+        jugarOtraVezButton.setOnAction(new VolverAJugar(stage, stageSalida, juego));
+        salirButton.setOnAction(new FinalizarJuego());
     }
 }

@@ -3,6 +3,7 @@ package edu.fiuba.algo3.controles;
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.vista.MapaVista;
 import edu.fiuba.algo3.vista.MovimientosVista;
+import edu.fiuba.algo3.vista.Principal;
 import edu.fiuba.algo3.vista.VehiculoVista;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
@@ -15,10 +16,13 @@ public class ControlesMoverse implements EventHandler<KeyEvent> {
 
     private MapaVista mapa;
 
-    public ControlesMoverse(Juego juego, MovimientosVista movimientos, MapaVista mapa) {
+    private Principal principal;
+
+    public ControlesMoverse(Juego juego, MovimientosVista movimientos, MapaVista mapa, Principal principal) {
         this.juego = juego;
         this.movimientos = movimientos;
         this.mapa = mapa;
+        this.principal = principal;
     }
 
     public void handle(KeyEvent event) {
@@ -40,7 +44,7 @@ public class ControlesMoverse implements EventHandler<KeyEvent> {
             mapa.actualizar();
             event.consume();
             if(juego.terminado()){
-                mapa.agregarBotonContinuar();
+                principal.mostrarSalida();
             }
         } catch (Exception e) {
 
