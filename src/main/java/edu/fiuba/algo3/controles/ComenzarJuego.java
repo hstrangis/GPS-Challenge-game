@@ -48,7 +48,7 @@ public class ComenzarJuego implements EventHandler<ActionEvent> {
         new SorteadorElementos(juego, mapa, ANCHO_MAPA, LARGO_MAPA);
 
         stage.close();
-        Scene pantallaJuego = new Scene(principal, 940, 1000);
+        Scene pantallaJuego = new Scene(principal, 940, 870);
         principal.inicializar(pantallaJuego, vehiculo);
         stage.setScene(pantallaJuego);
         stage.show();

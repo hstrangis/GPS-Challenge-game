@@ -5,7 +5,7 @@ public abstract class Sorpresa {
 
    protected Coordenada coordenada;
 
-    abstract public void interactuar(EstadoVehiculo vehiculo);
+    abstract public boolean interactuar(EstadoVehiculo vehiculo);
 
     public String nombre(){return "sorpresa";}
 

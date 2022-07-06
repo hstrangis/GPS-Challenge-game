@@ -15,13 +15,11 @@ import java.util.List;
 
 public class MapaVista extends Group {
     static final int INICIAL_X = 270;
-    static final int INICIAL_Y = 390;
+    static final int INICIAL_Y = 250;
 
     static final int DISTANCIA_PUNTOS = 190;
 
     private VehiculoVista vehiculo;
-
-    private Salida salida;
 
     private List<SorpresaVista> sorpresas;
 
@@ -29,7 +27,7 @@ public class MapaVista extends Group {
         sorpresas = new ArrayList<>();
         for (int fila = 0; fila < largo; fila++) {
             for (int columna = 0; columna < ancho; columna++) {
-                this.getChildren().add(new Rectangle(130 + columna*190, 250 + fila*190, 120,120));
+                this.getChildren().add(new Rectangle(130 + columna*190, 110 + fila*190, 120,120));
             }
         }
     }
@@ -48,9 +46,6 @@ public class MapaVista extends Group {
         this.getChildren().add(vista);
     }
 
-    public void agregarSalida(Salida salida) {
-        this.salida = salida;
-    }
 
     public void actualizar(){
         vehiculo.actualizar();

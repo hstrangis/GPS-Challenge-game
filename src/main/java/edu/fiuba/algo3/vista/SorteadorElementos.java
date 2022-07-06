@@ -21,13 +21,16 @@ public class SorteadorElementos {
 
     private void crearSorpresa(){
         Sorpresa sorpresa;
-        int sorteo = (int) (Math.random() * (3));
+        int sorteo = (int) (Math.random() * (4));
         switch (sorteo) {
             case 0:
                 sorpresa = new Favorable();
                 break;
             case 1:
                 sorpresa = new Desfavorable();
+                break;
+            case 2:
+                sorpresa = new Especial();
                 break;
             default:
                 sorpresa = new CambioVehiculo();

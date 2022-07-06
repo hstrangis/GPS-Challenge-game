@@ -16,8 +16,8 @@ public class Jugador {
 
     public void moverse(Sentido sentido) {
         if (ubicacion.validarSentido(sentido)) {
-            vehiculo.moverse();
             ubicacion = ubicacion.siguientePunto(sentido, vehiculo);
+            vehiculo.moverse();
             ubicacion.llegadaJugador();
         }
     }

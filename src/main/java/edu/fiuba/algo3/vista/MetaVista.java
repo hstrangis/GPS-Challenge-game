@@ -17,6 +17,6 @@ public class MetaVista extends ImageView {
         this.setFitHeight(75);
         this.setFitWidth(65);
         this.setX(243 + meta.coordenadaX()*DISTANCIA_PUNTOS);
-        this.setY(370 + meta.coordenadaY()*DISTANCIA_PUNTOS);
+        this.setY(230 + meta.coordenadaY()*DISTANCIA_PUNTOS);
     }
 }

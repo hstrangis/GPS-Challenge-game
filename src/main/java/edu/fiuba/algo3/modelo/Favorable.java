@@ -5,8 +5,8 @@ public class Favorable extends Sorpresa {
     public Favorable(){
     };
 
-    public void interactuar(EstadoVehiculo vehiculo){
-        vehiculo.interactuar(this);
+    public boolean interactuar(EstadoVehiculo vehiculo){
+        return vehiculo.interactuar(this);
     }
 
     public void actuar(Movimientos movimientos) {

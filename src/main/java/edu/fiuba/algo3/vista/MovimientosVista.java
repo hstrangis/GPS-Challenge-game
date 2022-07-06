@@ -10,7 +10,7 @@ public class MovimientosVista extends Text {
     MovimientosVista(Movimientos movimientos){
         this.movimientos = movimientos;
         this.setX(403);
-        this.setY(160);
+        this.setY(40);
         String cartel = "Movimientos realizados: " + movimientos.cantidad();
         this.setText(cartel);
         this.setScaleX(1.5);

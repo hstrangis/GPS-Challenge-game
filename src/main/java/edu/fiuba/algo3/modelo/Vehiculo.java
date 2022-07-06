@@ -32,7 +32,7 @@ public class Vehiculo {
     public boolean interactuarObstaculo(Obstaculo obstaculo) {
         return obstaculo.interactuar(estado);
     }
-    public void interactuarSorpresa(Sorpresa sorpresa) {
-        sorpresa.interactuar(estado);
+    public boolean interactuarSorpresa(Sorpresa sorpresa) {
+        return sorpresa.interactuar(estado);
     }
 }
