@@ -32,5 +32,5 @@ public abstract class EstadoVehiculo {
     protected abstract boolean interactuar(Piquete piquete);
     protected abstract EstadoVehiculo crearSiguiente();
 
-    protected abstract String nombre();
+    public abstract String nombre();
 }
