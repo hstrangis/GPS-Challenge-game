@@ -5,8 +5,7 @@ import java.util.Comparator;
 
 public class Ranking {
 
-    private ArrayList<Jugador> ranking;
-    private Integer maxRanking = 10;
+    private final ArrayList<Jugador> ranking;
 
     public Ranking() {
         ranking = new ArrayList<>();
@@ -34,12 +33,7 @@ public class Ranking {
     private void quitarJugador(Jugador jugador) {
         ranking.remove(jugador);
     }
-    public void limpiar() {
-        ranking.clear();
-    }
-    public void setearMaximo(Integer max) {
-        maxRanking = max;
-    }
+
     public Jugador primerPuesto() {
         return ranking.get(0);
     }

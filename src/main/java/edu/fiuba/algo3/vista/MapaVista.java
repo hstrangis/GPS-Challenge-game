@@ -1,15 +1,9 @@
 package edu.fiuba.algo3.vista;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +15,7 @@ public class MapaVista extends Group {
 
     private VehiculoVista vehiculo;
 
-    private List<SorpresaVista> sorpresas;
+    private final List<SorpresaVista> sorpresas;
 
     public MapaVista(int largo, int ancho){
         sorpresas = new ArrayList<>();

@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.Vehiculo;
 import edu.fiuba.algo3.vista.MapaVista;
 import edu.fiuba.algo3.vista.Principal;
 import edu.fiuba.algo3.vista.SorteadorElementos;
-import edu.fiuba.algo3.vista.VehiculoVista;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -18,14 +17,14 @@ import static edu.fiuba.algo3.vista.App.ANCHO_MAPA;
 import static edu.fiuba.algo3.vista.App.LARGO_MAPA;
 
 public class ComenzarJuego implements EventHandler<ActionEvent> {
-    private Vehiculo vehiculo;
+    private final Vehiculo vehiculo;
 
     private TextField nombre;
-    private Stage stage;
+    private final Stage stage;
 
-    private Movimientos movimientos;
+    private final Movimientos movimientos;
 
-    private Juego juego;
+    private final Juego juego;
 
 
     public ComenzarJuego(Vehiculo vehiculo, Movimientos movimientos, Stage stage, Juego juego){

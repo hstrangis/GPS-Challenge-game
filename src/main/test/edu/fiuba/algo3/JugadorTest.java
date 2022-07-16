@@ -25,4 +25,24 @@ public class JugadorTest {
         juego.moverse(new Este());
         assertEquals(3, juego.jugador().movimientos().cantidad());
     }
+
+    @Test
+    public void testJugadorLlegaALaMeta() {
+        Vehiculo vehiculo = new Vehiculo(new Moto(), new Movimientos());
+        Juego juego = new Juego(4,4);
+        juego.jugar("carlos", vehiculo, new Meta());
+        juego.moverse(new Este());
+        juego.moverse(new Este());
+        juego.moverse(new Este());
+        juego.moverse(new Oeste());
+        juego.moverse(new Sur());
+        juego.moverse(new Este());
+        juego.moverse(new Oeste());
+        juego.moverse(new Sur());
+        juego.moverse(new Este());
+        juego.moverse(new Oeste());
+        juego.moverse(new Sur());
+        juego.moverse(new Este());
+        assertTrue(juego.terminado());
+    }
 }

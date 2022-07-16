@@ -24,7 +24,7 @@ public class Jugador {
 
     //Para pruebas
     public Movimientos movimientos(){
-        return vehiculo.movimientos;
+        return vehiculo.movimientos();
     }
 
     public String nombre() { return nick; }

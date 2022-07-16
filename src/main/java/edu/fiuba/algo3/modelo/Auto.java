@@ -9,13 +9,13 @@ public class Auto extends EstadoVehiculo {
 
     @Override
     public boolean interactuar(Pozo pozo){
-        vehiculo.movimientos.sumar(3);
+        vehiculo.movimientos().sumar(3);
         return true;
     }
     @Override
     public boolean interactuar(ControlPolicial control){
         if(control.probabilidadDetencion(0.5)){
-            vehiculo.movimientos.sumar(3);
+            vehiculo.movimientos().sumar(3);
         }
         return true;
     }

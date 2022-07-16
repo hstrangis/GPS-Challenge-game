@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.Sentido;
 import edu.fiuba.algo3.modelo.Vehiculo;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -9,8 +8,8 @@ import javafx.scene.image.ImageView;
 import static edu.fiuba.algo3.vista.MapaVista.*;
 
 public class VehiculoVista extends ImageView {
-    private Vehiculo vehiculo;
-    private Jugador jugador;
+    private final Vehiculo vehiculo;
+    private final Jugador jugador;
 
     VehiculoVista(Vehiculo vehiculo, Jugador jugador){
         this.vehiculo = vehiculo;

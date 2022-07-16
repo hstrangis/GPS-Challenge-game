@@ -6,11 +6,11 @@ public abstract class EstadoVehiculo {
         this.vehiculo = vehiculo;
     }
     protected boolean interactuar(Favorable favorable){
-        favorable.actuar(vehiculo.movimientos);
+        favorable.actuar(vehiculo.movimientos());
         return true;
     }
     protected boolean interactuar(Desfavorable desfavorable){
-        desfavorable.actuar(vehiculo.movimientos);
+        desfavorable.actuar(vehiculo.movimientos());
         return true;
     }
     protected boolean interactuar(CambioVehiculo cambioVehiculo){
@@ -20,7 +20,7 @@ public abstract class EstadoVehiculo {
 
     protected boolean interactuar(Especial especial){
         boolean permiso;
-        if (vehiculo.movimientos.cantidad() % 2 == 0) {
+        if (vehiculo.movimientos().cantidad() % 2 == 0) {
             permiso = this.interactuar(new CambioVehiculo());
         }
         else

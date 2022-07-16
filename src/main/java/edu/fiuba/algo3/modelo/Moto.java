@@ -8,19 +8,19 @@ public class Moto extends EstadoVehiculo {
     }
     @Override
     public boolean interactuar(Pozo pozo){
-        vehiculo.movimientos.sumar(3);
+        vehiculo.movimientos().sumar(3);
         return true;
     }
     @Override
     public boolean interactuar(ControlPolicial control){
         if(control.probabilidadDetencion(0.8)){
-            vehiculo.movimientos.sumar(3);
+            vehiculo.movimientos().sumar(3);
         }
         return true;
     }
     @Override
     public boolean interactuar(Piquete piquete){
-        vehiculo.movimientos.sumar(2);
+        vehiculo.movimientos().sumar(2);
         return true;
     }
 

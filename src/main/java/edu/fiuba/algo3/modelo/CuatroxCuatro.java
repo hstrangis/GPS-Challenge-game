@@ -11,7 +11,7 @@ public class CuatroxCuatro extends EstadoVehiculo {
     public boolean interactuar(Pozo pozo) {
         pozosPisados += 1;
         if (pozosPisados == 3) {
-            vehiculo.movimientos.sumar(2);
+            vehiculo.movimientos().sumar(2);
             pozosPisados = 0;
         }
         return true;
@@ -19,7 +19,7 @@ public class CuatroxCuatro extends EstadoVehiculo {
     @Override
     public boolean interactuar(ControlPolicial control){
         if(control.probabilidadDetencion(0.3)){
-            vehiculo.movimientos.sumar(3);
+            vehiculo.movimientos().sumar(3);
         }
         return true;
     }

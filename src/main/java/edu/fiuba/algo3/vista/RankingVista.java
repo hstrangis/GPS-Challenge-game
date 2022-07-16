@@ -8,19 +8,13 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 
 public class RankingVista extends Group {
-    private Ranking ranking;
+    private final Ranking ranking;
     RankingVista (Juego juego) {
         this.ranking = juego.obtenerRanking();
     }
 
     public void inicializar() {
-        //Agrego jugadores al ranking para pruebas
-//        Jugador j1 = new Jugador("Juan", new Vehiculo(new Moto()));
-//        Jugador j2 = new Jugador("Tito", new Vehiculo(new Auto()));
-//        Jugador j3 = new Jugador("Jose", new Vehiculo(new CuatroxCuatro()));
-//        ranking.agregarJugador(j1);
-//        ranking.agregarJugador(j2);
-//        ranking.agregarJugador(j3);
+
 
         Label jugador = new Label("Jugador");
         jugador.setMinWidth(100);

@@ -1,10 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import javafx.scene.Group;
-import javafx.scene.shape.Rectangle;
-
-import java.util.concurrent.ThreadLocalRandom;
-
 public class Ciudad {
 
     private Cruce[][] matrizMapa;

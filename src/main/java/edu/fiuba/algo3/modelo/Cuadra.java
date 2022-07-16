@@ -9,9 +9,9 @@ public class Cuadra {
 
     static final int MAX_ELEMENTOS = 3;
     static final Sentido ARRIBA = new Norte();
-    private Hashtable<Direccion, PuntoEstable> cruces;
-    private List<Obstaculo> obstaculos;
-    private List<Sorpresa> sorpresas;
+    private final Hashtable<Direccion, PuntoEstable> cruces;
+    private final List<Obstaculo> obstaculos;
+    private final List<Sorpresa> sorpresas;
 
     Cuadra(PuntoEstable izquierdo, PuntoEstable derecho){
         cruces = new Hashtable<>();
@@ -35,9 +35,7 @@ public class Cuadra {
 
     private boolean interactuarObstaculo(Vehiculo vehiculo) {
         boolean permisoParaPasar = true;
-        ListIterator<Obstaculo> iter = obstaculos.listIterator();
-        while (iter.hasNext()){
-            Obstaculo obstaculo = iter.next();
+        for (Obstaculo obstaculo: obstaculos) {
             if (!vehiculo.interactuarObstaculo(obstaculo)) {
                 permisoParaPasar = false;
                 break;

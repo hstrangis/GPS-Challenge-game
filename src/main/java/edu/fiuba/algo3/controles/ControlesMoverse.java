@@ -4,19 +4,18 @@ import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.vista.MapaVista;
 import edu.fiuba.algo3.vista.MovimientosVista;
 import edu.fiuba.algo3.vista.Principal;
-import edu.fiuba.algo3.vista.VehiculoVista;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class ControlesMoverse implements EventHandler<KeyEvent> {
 
-    private Juego juego;
-    private MovimientosVista movimientos;
+    private final Juego juego;
+    private final MovimientosVista movimientos;
 
-    private MapaVista mapa;
+    private final MapaVista mapa;
 
-    private Principal principal;
+    private final Principal principal;
 
     public ControlesMoverse(Juego juego, MovimientosVista movimientos, MapaVista mapa, Principal principal) {
         this.juego = juego;

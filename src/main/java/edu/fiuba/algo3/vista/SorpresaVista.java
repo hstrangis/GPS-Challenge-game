@@ -9,7 +9,7 @@ import static edu.fiuba.algo3.vista.MapaVista.*;
 
 public class SorpresaVista extends ImageView {
 
-    private Sorpresa sorpresa;
+    private final Sorpresa sorpresa;
 
     SorpresaVista(Sorpresa sorpresa){
        this.sorpresa = sorpresa;

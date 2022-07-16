@@ -4,12 +4,12 @@ import edu.fiuba.algo3.modelo.*;
 
 public class SorteadorElementos {
 
-    private MapaVista mapa;
+    private final MapaVista mapa;
 
-    private Juego juego;
+    private final Juego juego;
 
-    private int ancho;
-    private int largo;
+    private final int ancho;
+    private final int largo;
 
     public SorteadorElementos(Juego juego, MapaVista mapa, int largo, int ancho){
         this.mapa = mapa;

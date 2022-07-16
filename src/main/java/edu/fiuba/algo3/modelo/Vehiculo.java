@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo;
 
 
 public class Vehiculo {
-    protected Movimientos movimientos;
+    private final Movimientos movimientos;
     private EstadoVehiculo estado;
 
     public Vehiculo(EstadoVehiculo estado, Movimientos movimientos){
@@ -34,5 +34,9 @@ public class Vehiculo {
     }
     public boolean interactuarSorpresa(Sorpresa sorpresa) {
         return sorpresa.interactuar(estado);
+    }
+
+    public Movimientos movimientos(){
+        return movimientos;
     }
 }

@@ -5,8 +5,6 @@ import java.util.Random;
 
 public class ControlPolicial extends Obstaculo {
 
-    public ControlPolicial(){};
-
     public String nombre(){return "controlPolicial";}
     public boolean probabilidadDetencion(double probabilidad) {
         Random numeroAleatorio = new Random();

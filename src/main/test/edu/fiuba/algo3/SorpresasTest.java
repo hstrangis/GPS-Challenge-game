@@ -2,7 +2,6 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SorpresasTest {
     @Test
@@ -11,10 +10,11 @@ public class SorpresasTest {
         Juego juego = new Juego(4,4);
         Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
         juego.jugar("Seba", vehiculo, new Meta());
-        juego.agregarSorpresa(new Favorable(), 0,0, new Este());
+        juego.agregarSorpresa(new Favorable(), 0,1, new Este());
+        juego.moverse(new Este());
         juego.moverse(new Este());
 
-        assertEquals(0.8,  movimientos.cantidad());
+        assertEquals(1.8,  movimientos.cantidad());
     }
     @Test
     public void testAutoAtraviesaCiudadYEncuentraSorpresaDesfavorable() {
@@ -22,10 +22,11 @@ public class SorpresasTest {
         Juego juego = new Juego(4,4);
         Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
         juego.jugar("Seba", vehiculo, new Meta());
-        juego.agregarSorpresa(new Desfavorable(), 0,0, new Este());
+        juego.agregarSorpresa(new Desfavorable(), 0,1, new Este());
+        juego.moverse(new Este());
         juego.moverse(new Este());
 
-        assertEquals(1.25, movimientos.cantidad());
+        assertEquals(2.25, movimientos.cantidad());
     }
     @Test
     public void testAutoAtraviesaCiudadYEncuentraSorpresaCambioDeVehiculo() {
@@ -37,7 +38,7 @@ public class SorpresasTest {
         juego.moverse(new Este());
 
         assertEquals(1, movimientos.cantidad());
-        assertTrue(vehiculo.estado() == "4x4");
+        assertEquals(vehiculo.estado(),"4x4");
     }
     @Test
     public void testMotoAtraviesaCiudadYEncuentraSorpresaCambioDeVehiculo() {
@@ -49,7 +50,7 @@ public class SorpresasTest {
         juego.moverse(new Este());
 
         assertEquals(1, movimientos.cantidad());
-        assertTrue(vehiculo.estado() == "auto");
+        assertEquals(vehiculo.estado(), "auto");
     }
     @Test
     public void test4x4AtraviesaCiudadYEncuentraSorpresaCambioDeVehiculo() {
@@ -61,7 +62,7 @@ public class SorpresasTest {
         juego.moverse(new Este());
 
         assertEquals(1, movimientos.cantidad());
-        assertTrue(vehiculo.estado() == "moto");
+        assertEquals(vehiculo.estado(), "moto");
     }
 
     @Test
@@ -75,6 +76,34 @@ public class SorpresasTest {
         juego.moverse(new Oeste());
 
         assertEquals(2, movimientos.cantidad());
-        assertTrue(vehiculo.estado() == "moto");
+        assertEquals(vehiculo.estado(), "moto");
+    }
+
+    @Test
+    public void test4x4AtraviesaCiudadYEncuentraSorpresaEspecialConMovimientosPares() {
+        Movimientos movimientos = new Movimientos();
+        Juego juego = new Juego(4,4);
+        Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), movimientos);
+        juego.jugar("Seba", vehiculo, new Meta());
+        juego.agregarSorpresa(new Especial(), 0,2, new Este());
+        juego.moverse(new Este());
+        juego.moverse(new Este());
+        juego.moverse(new Este());
+        assertEquals(3, movimientos.cantidad());
+        assertEquals(vehiculo.estado(), "moto");
+    }
+
+    @Test
+    public void test4x4AtraviesaCiudadYEncuentraSorpresaEspecialConMovimientosImpares() {
+        Movimientos movimientos = new Movimientos();
+        Juego juego = new Juego(4,4);
+        Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), movimientos);
+        juego.jugar("Seba", vehiculo, new Meta());
+        juego.agregarSorpresa(new Especial(), 0,1, new Este());
+        juego.moverse(new Este());
+        PuntoEstable posicionInicial = juego.jugador().ubicacion();
+        juego.moverse(new Este());
+        assertEquals(2, movimientos.cantidad());
+        assertEquals(posicionInicial, juego.jugador().ubicacion());
     }
 }

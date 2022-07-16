@@ -5,7 +5,7 @@ import javafx.scene.text.Text;
 
 public class MovimientosVista extends Text {
 
-    private Movimientos movimientos;
+    private final Movimientos movimientos;
 
     MovimientosVista(Movimientos movimientos){
         this.movimientos = movimientos;

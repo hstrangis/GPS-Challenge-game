@@ -1,19 +1,11 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controles.ComenzarJuego;
-import edu.fiuba.algo3.controles.ControlesMoverse;
-import edu.fiuba.algo3.controles.FinalizarJuego;
-import edu.fiuba.algo3.controles.VerRanking;
+
 import edu.fiuba.algo3.modelo.*;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Group;
+
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
+
 import javafx.stage.Stage;
 
 /**

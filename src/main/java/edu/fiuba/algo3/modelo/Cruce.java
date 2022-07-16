@@ -4,7 +4,7 @@ import java.util.Hashtable;
 
 public class Cruce extends PuntoEstable {
 
-    private Hashtable<String, Cuadra> cuadras;
+    private final Hashtable<String, Cuadra> cuadras;
     Cruce(int x, int y) {
         super(x, y);
         cuadras = new Hashtable<>();

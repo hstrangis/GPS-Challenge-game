@@ -1,16 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
-import javafx.scene.Group;
-
 public class Juego {
     private Ciudad ciudad;
     private Jugador jugador;
     public Ranking ranking;
     private boolean juegoTerminado;
 
-    private int largo;
+    private final int largo;
 
-    private int ancho;
+    private final int ancho;
 
     public Juego(int largo, int ancho) {
         this.largo = largo;
