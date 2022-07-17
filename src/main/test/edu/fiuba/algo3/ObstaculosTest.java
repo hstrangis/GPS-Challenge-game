@@ -68,5 +68,30 @@ public class ObstaculosTest {
         assertEquals(1, movimientos.cantidad());
         assertEquals(posicionInicial, juego.jugador().ubicacion());
     }
-
+    @Test
+    public void testUnaMotoAtraviesaCiudadYSeEncuentraControlPolicial() {
+        Movimientos movimientos = new Movimientos();
+        Juego juego = new Juego(4,4);
+        Vehiculo vehiculo = new Vehiculo(new Moto(), movimientos);
+        juego.jugar("carlos", vehiculo, new Meta());
+        juego.agregarObstaculo(new ControlPolicial(), 0,0, new Este());
+        juego.moverse(new Este());
+        assert( movimientos.cantidad() == 1 || movimientos.cantidad() == 4);
+    }
+    @Test
+    public void testUnAutoAtraviesaPozoIntermitentementeEnAmbosSentidos() {
+        Movimientos movimientos = new Movimientos();
+        Juego juego = new Juego(4,4);
+        Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
+        juego.jugar("carlos", vehiculo, new Meta());
+        juego.agregarObstaculo(new Pozo(), 0,1, new Este());
+        juego.moverse(new Este());
+        for(int i = 0; i < 10; i++) {
+            juego.moverse(new Este());
+            juego.moverse(new Sur());
+            juego.moverse(new Oeste());
+            juego.moverse(new Norte());
+        }
+        assertEquals(71, movimientos.cantidad());
+    }
 }
