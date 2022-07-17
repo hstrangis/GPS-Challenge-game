@@ -22,9 +22,9 @@ public class SorpresasTest {
         Juego juego = new Juego(4,4);
         Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
         juego.jugar("Seba", vehiculo, new Meta());
-        juego.agregarSorpresa(new Desfavorable(), 0,1, new Este());
+        juego.agregarSorpresa(new Desfavorable(), 0,1, new Sur());
         juego.moverse(new Este());
-        juego.moverse(new Este());
+        juego.moverse(new Sur());
 
         assertEquals(2.25, movimientos.cantidad());
     }
@@ -34,8 +34,8 @@ public class SorpresasTest {
         Juego juego = new Juego(4,4);
         Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
         juego.jugar("Seba", vehiculo, new Meta());
-        juego.agregarSorpresa(new CambioVehiculo(), 0,0, new Este());
-        juego.moverse(new Este());
+        juego.agregarSorpresa(new CambioVehiculo(), 0,0, new Norte());
+        juego.moverse(new Norte());
 
         assertEquals(1, movimientos.cantidad());
         assertEquals(vehiculo.estado(),"4x4");
@@ -46,8 +46,8 @@ public class SorpresasTest {
         Juego juego = new Juego(4,4);
         Vehiculo vehiculo = new Vehiculo(new Moto(), movimientos);
         juego.jugar("Seba", vehiculo, new Meta());
-        juego.agregarSorpresa(new CambioVehiculo(), 0,0, new Este());
-        juego.moverse(new Este());
+        juego.agregarSorpresa(new CambioVehiculo(), 0,0, new Oeste());
+        juego.moverse(new Oeste());
 
         assertEquals(1, movimientos.cantidad());
         assertEquals(vehiculo.estado(), "auto");
@@ -80,21 +80,20 @@ public class SorpresasTest {
     }
 
     @Test
-    public void test4x4AtraviesaCiudadYEncuentraSorpresaEspecialConMovimientosPares() {
+    public void test4x4EncuentraSorpresaEspecialConMovimientosParesYTieneMovimientosPares() {
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4);
         Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), movimientos);
         juego.jugar("Seba", vehiculo, new Meta());
-        juego.agregarSorpresa(new Especial(), 0,2, new Este());
+        juego.agregarSorpresa(new Especial(), 0,2, new Sur());
         juego.moverse(new Este());
         juego.moverse(new Este());
-        juego.moverse(new Este());
+        juego.moverse(new Sur());
         assertEquals(3, movimientos.cantidad());
         assertEquals(vehiculo.estado(), "moto");
     }
-
     @Test
-    public void test4x4AtraviesaCiudadYEncuentraSorpresaEspecialConMovimientosImpares() {
+    public void test4x4EncuentraSorpresaEspecialConMovimientosImpares() {
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4);
         Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), movimientos);

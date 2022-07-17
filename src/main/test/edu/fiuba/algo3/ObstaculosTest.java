@@ -25,8 +25,8 @@ public class ObstaculosTest {
         Juego juego = new Juego(4,4);
         Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
         juego.jugar("carlos", vehiculo, new Meta());
-        juego.agregarObstaculo(new Pozo(), 0,0, new Este());
-        juego.moverse(new Este());
+        juego.agregarObstaculo(new Pozo(), 0,0, new Oeste());
+        juego.moverse(new Oeste());
 
         assertEquals(4, movimientos.cantidad());
     }
@@ -37,8 +37,8 @@ public class ObstaculosTest {
         Juego juego = new Juego(4,4);
         Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), movimientos);
         juego.jugar("carlos", vehiculo, new Meta());
-        juego.agregarObstaculo(new Pozo(), 0,0, new Este());
-        juego.moverse(new Este());
+        juego.agregarObstaculo(new Pozo(), 0,0, new Norte());
+        juego.moverse(new Norte());
 
         assertEquals(1, movimientos.cantidad());
     }
@@ -49,8 +49,8 @@ public class ObstaculosTest {
         Juego juego = new Juego(4,4);
         Vehiculo vehiculo = new Vehiculo(new Moto(), movimientos);
         juego.jugar("carlos", vehiculo, new Meta());
-        juego.agregarObstaculo(new Piquete(), 0,0, new Este());
-        juego.moverse(new Este());
+        juego.agregarObstaculo(new Piquete(), 0,0, new Sur());
+        juego.moverse(new Sur());
 
         assertEquals(3, movimientos.cantidad());
     }
@@ -74,8 +74,8 @@ public class ObstaculosTest {
         Juego juego = new Juego(4,4);
         Vehiculo vehiculo = new Vehiculo(new Moto(), movimientos);
         juego.jugar("carlos", vehiculo, new Meta());
-        juego.agregarObstaculo(new ControlPolicial(), 0,0, new Este());
-        juego.moverse(new Este());
+        juego.agregarObstaculo(new ControlPolicial(), 0,0, new Oeste());
+        juego.moverse(new Oeste());
         assert( movimientos.cantidad() == 1 || movimientos.cantidad() == 4);
     }
     @Test
