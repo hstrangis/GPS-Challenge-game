@@ -14,6 +14,20 @@ public class VehiculoTest {
         assertEquals(vehiculo.estado(), auto.nombre());
     }
     @Test
+    public void testVehiculoTeniaEstadoMotoYLeCambioElEstadoA4x4() {
+        Vehiculo vehiculo = new Vehiculo(new Moto(), new Movimientos());
+        EstadoVehiculo camio = new CuatroxCuatro();
+        vehiculo.cambiarEstado(camio);
+        assertEquals(vehiculo.estado(), camio.nombre());
+    }
+    @Test
+    public void testVehiculoTeniaEstado4x4YLeCambioElEstadoAAuto() {
+        Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), new Movimientos());
+        EstadoVehiculo auto = new CuatroxCuatro();
+        vehiculo.cambiarEstado(auto);
+        assertEquals(vehiculo.estado(), auto.nombre());
+    }
+    @Test
     public void testVehiculoSeMueveYAumentaUnMovimiento() {
         Vehiculo vehiculo = new Vehiculo(new Moto(), new Movimientos());
         Juego juego = new Juego(4,4);

@@ -20,7 +20,7 @@ public class SorpresasTest {
     public void testAutoAtraviesaCiudadYEncuentraSorpresaDesfavorable() {
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4);
-        Vehiculo vehiculo = new Vehiculo(new Auto(), movimientos);
+        Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), movimientos);
         juego.jugar("Seba", vehiculo, new Meta());
         juego.agregarSorpresa(new Desfavorable(), 0,1, new Sur());
         juego.moverse(new Este());
@@ -64,7 +64,6 @@ public class SorpresasTest {
         assertEquals(1, movimientos.cantidad());
         assertEquals(vehiculo.estado(), "moto");
     }
-
     @Test
     public void test4x4AtraviesaCiudadYEncuentraSorpresaCambioDeVehiculoDespuesVuelveParaAtrasPeroLaSorpresaYaNoEsta() {
         Movimientos movimientos = new Movimientos();
@@ -78,7 +77,6 @@ public class SorpresasTest {
         assertEquals(2, movimientos.cantidad());
         assertEquals(vehiculo.estado(), "moto");
     }
-
     @Test
     public void test4x4EncuentraSorpresaEspecialConMovimientosParesYTieneMovimientosPares() {
         Movimientos movimientos = new Movimientos();

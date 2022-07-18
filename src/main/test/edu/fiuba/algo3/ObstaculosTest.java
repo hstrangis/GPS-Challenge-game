@@ -69,14 +69,48 @@ public class ObstaculosTest {
         assertEquals(posicionInicial, juego.jugador().ubicacion());
     }
     @Test
+    public void testUna4x4AtraviesaCiudadYSeEncuentraPiquete() {
+        //Una 4x4 se desplaza desde el origen hacia el Este, encuentra un piquete y vuelve al origen
+        Movimientos movimientos = new Movimientos();
+        Juego juego = new Juego(4,4);
+        Vehiculo vehiculo = new Vehiculo(new CuatroxCuatro(), movimientos);
+        juego.jugar("carlos", vehiculo, new Meta());
+        juego.agregarObstaculo(new Piquete(), 0,0, new Este());
+        PuntoEstable posicionInicial = juego.jugador().ubicacion();
+        juego.moverse(new Este());
+
+        assertEquals(1, movimientos.cantidad());
+        assertEquals(posicionInicial, juego.jugador().ubicacion());
+    }
+    @Test
     public void testUnaMotoAtraviesaCiudadYSeEncuentraControlPolicial() {
         Movimientos movimientos = new Movimientos();
         Juego juego = new Juego(4,4);
-        Vehiculo vehiculo = new Vehiculo(new Moto(), movimientos);
-        juego.jugar("carlos", vehiculo, new Meta());
+        Vehiculo moto = new Vehiculo(new Moto(), movimientos);
+        juego.jugar("carlos", moto, new Meta());
         juego.agregarObstaculo(new ControlPolicial(), 0,0, new Oeste());
         juego.moverse(new Oeste());
-        assert( movimientos.cantidad() == 1 || movimientos.cantidad() == 4);
+        assert(movimientos.cantidad() == 1 || movimientos.cantidad() == 4);
+    }
+    @Test
+    public void testUnAutoAtraviesaCiudadYSeEncuentraControlPolicial() {
+        Movimientos movimientos = new Movimientos();
+        Juego juego = new Juego(4,4);
+        Vehiculo auto = new Vehiculo(new Auto(), movimientos);
+        juego.jugar("carlos", auto, new Meta());
+        juego.agregarObstaculo(new ControlPolicial(), 0,0, new Norte());
+        juego.moverse(new Norte());
+        assert(movimientos.cantidad() == 1 || movimientos.cantidad() == 4);
+    }
+    @Test
+    public void testUna4x4AtraviesaCiudadYSeEncuentraControlPolicial() {
+        Movimientos movimientos = new Movimientos();
+        Juego juego = new Juego(4,4);
+        Vehiculo camio = new Vehiculo(new CuatroxCuatro(), movimientos);
+        juego.jugar("carlos", camio, new Meta());
+        juego.agregarObstaculo(new ControlPolicial(), 0,0, new Sur());
+        juego.moverse(new Sur());
+        assert(movimientos.cantidad() == 1 || movimientos.cantidad() == 4);
     }
     @Test
     public void testUnAutoAtraviesaPozoIntermitentementeEnAmbosSentidos() {
